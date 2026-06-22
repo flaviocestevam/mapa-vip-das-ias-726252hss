@@ -101,6 +101,7 @@ const CATEGORIAS: Categoria[] = [
       { slug: "speechify", nome: "Speechify", para: "Leitura de textos em voz natural", tipo: "Licença", oficial: "R$ 80/mês", encontrado: "R$ 19/mês", economia: "~76%", atencao: "Baixa", link: "https://plati.market/search/speechify" },
       { slug: "suno", nome: "Suno", para: "Geração de músicas com IA", tipo: "Plano com créditos", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/suno" },
       { slug: "udio", nome: "Udio", para: "Geração de músicas e trilhas", tipo: "Plano com créditos", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/udio" },
+      { slug: "descript", nome: "Descript", para: "Edição de áudio e podcast com IA", tipo: "Licença", oficial: "R$ 130/mês", encontrado: "R$ 29/mês", economia: "~77%", atencao: "Baixa", link: "https://plati.market/search/descript" },
     ],
   },
   {
