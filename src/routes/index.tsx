@@ -25,38 +25,38 @@ const CATEGORIAS = [
   {
     nome: "Texto, pesquisa e produtividade",
     desc: "Assistentes de escrita, pesquisa e raciocínio para o dia a dia.",
+    cat: "Texto",
     tools: ["ChatGPT", "Claude", "Gemini", "Perplexity", "Microsoft Copilot"],
-    link: "https://plati.market/search/chatgpt",
   },
   {
     nome: "Imagem e criação visual",
     desc: "Geração e edição de imagens para social, design e branding.",
+    cat: "Imagem",
     tools: ["Midjourney", "Leonardo AI", "Freepik", "Adobe Firefly", "Canva Pro"],
-    link: "https://plati.market/search/midjourney",
   },
   {
     nome: "Vídeo e edição",
     desc: "Ferramentas para roteiro, edição e geração de vídeos com IA.",
+    cat: "Vídeo",
     tools: ["CapCut Pro", "Runway", "Kling", "Pika", "Higgsfield", "Veo"],
-    link: "https://plati.market/search/capcut%20pro",
   },
   {
     nome: "Voz, áudio e narração",
     desc: "Clonagem de voz, narração natural e geração musical.",
+    cat: "Voz",
     tools: ["ElevenLabs", "Murf", "Speechify", "Suno", "Udio"],
-    link: "https://plati.market/search/elevenlabs",
   },
   {
     nome: "Design, templates e criativos",
     desc: "Bibliotecas de templates, mockups e elementos prontos.",
+    cat: "Design",
     tools: ["Canva Pro", "Envato", "Motion Array", "Creative Fabrica", "Placeit"],
-    link: "https://plati.market/search/canva%20pro",
   },
   {
     nome: "Automação e negócios",
     desc: "Automação de fluxos, APIs e produtividade para times.",
+    cat: "Produtividade",
     tools: ["Notion AI", "Make", "Zapier", "Gamma", "APIs / créditos"],
-    link: "https://plati.market/search/notion%20ai",
   },
 ];
 
@@ -384,9 +384,7 @@ function MapaVIP() {
                     ))}
                   </ul>
                   <a
-                    href={c.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`#ofertas`}
                     className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#f5d572] hover:underline"
                   >
                     Ver opções dessa categoria →
