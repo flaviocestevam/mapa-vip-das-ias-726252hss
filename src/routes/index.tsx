@@ -436,7 +436,7 @@ function MapaVIP() {
               <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f5d572]">
                 Última atualização
               </div>
-              <div className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
+              <div className="mt-2 font-black tracking-tight text-white text-[clamp(2rem,6vw,3rem)]">
                 <span className="data-atualizacao">--/--/----</span>
               </div>
               <p className="mt-3 text-sm text-white/60">
