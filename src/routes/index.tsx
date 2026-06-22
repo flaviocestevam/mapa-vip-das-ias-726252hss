@@ -506,7 +506,12 @@ function MapaVIP() {
                   <div className="mt-5 rounded-xl border border-emerald-500/15 bg-emerald-500/5 p-3 text-sm text-emerald-300">
                     Economia estimada: <strong>{s.economia}</strong>
                   </div>
-                  <a href="#ofertas" className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#f5d572] hover:underline">
+                  <a
+                    href={s.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#f5d572] hover:underline"
+                  >
                     Ver ferramentas desse stack →
                   </a>
                 </div>
