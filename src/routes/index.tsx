@@ -341,7 +341,7 @@ function MapaVIP() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0b0a07] text-[#f5efe0] antialiased scroll-smooth">
+    <div className="min-h-dvh overflow-x-hidden bg-[#0b0a07] text-[#f5efe0] antialiased scroll-smooth">
       {/* Glow background */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         <div className="absolute -top-40 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(212,175,55,0.18),transparent)]" />
@@ -351,12 +351,12 @@ function MapaVIP() {
       <div className="relative z-10">
         {/* Header */}
         <header className="sticky top-0 z-30 border-b border-white/5 bg-[#0b0a07]/80 backdrop-blur-xl">
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-            <a href="#top" className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#8a6a1a] text-sm font-black text-black shadow-[0_0_30px_rgba(212,175,55,0.35)]">
+          <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:flex lg:justify-between">
+            <a href="#top" className="flex min-w-0 items-center gap-2 sm:gap-3">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#8a6a1a] text-sm font-black text-black shadow-[0_0_30px_rgba(212,175,55,0.35)]">
                 IA
               </span>
-              <span className="text-sm font-semibold tracking-tight sm:text-base">
+              <span className="truncate text-sm font-semibold tracking-tight sm:text-base">
                 Mapa das IAs Baratas
               </span>
             </a>
@@ -369,28 +369,30 @@ function MapaVIP() {
             </nav>
             <a
               href="#comece-aqui"
-              className="rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black shadow-[0_0_30px_rgba(212,175,55,0.35)] sm:text-sm"
+              className="inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black shadow-[0_0_30px_rgba(212,175,55,0.35)] min-h-11 sm:text-sm"
             >
               Área VIP
             </a>
           </div>
         </header>
 
+
         <main id="top" className="mx-auto max-w-7xl px-4 sm:px-6">
           {/* HERO */}
-          <section className="grid gap-10 py-16 lg:grid-cols-[1.2fr_1fr] lg:py-24">
-            <div>
+          <section className="grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.2fr_1fr] lg:py-24">
+            <div className="min-w-0">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-4 py-1.5 text-xs font-medium text-[#f5d572]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#f5d572]" />
                 Acesso liberado · Mapa VIP das IAs
               </span>
-              <h1 className="mt-6 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 font-black leading-[1.05] tracking-tight text-[clamp(2rem,7vw,3.75rem)]">
                 Seu{" "}
                 <span className="bg-gradient-to-r from-[#f5d572] via-[#d4af37] to-[#8a6a1a] bg-clip-text text-transparent">
                   Mapa VIP
                 </span>{" "}
                 para encontrar ferramentas de IA pagando menos
               </h1>
+
               <p className="mt-6 max-w-2xl text-base text-white/70 sm:text-lg">
                 Aqui estão os links, preços, categorias, rankings, prints e instruções para você
                 encontrar oportunidades em ferramentas de IA sem perder tempo garimpando sozinho.
@@ -434,7 +436,7 @@ function MapaVIP() {
               <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f5d572]">
                 Última atualização
               </div>
-              <div className="mt-2 text-4xl font-black tracking-tight text-white sm:text-5xl">
+              <div className="mt-2 font-black tracking-tight text-white text-[clamp(2rem,6vw,3rem)]">
                 <span className="data-atualizacao">--/--/----</span>
               </div>
               <p className="mt-3 text-sm text-white/60">
@@ -589,17 +591,18 @@ function MapaVIP() {
             <div className="space-y-12">
               {CATEGORIAS.map((c) => (
                 <div key={c.slug} id={`categoria-${c.slug}`} className="scroll-mt-24">
-                  <div className="mb-5 flex items-end justify-between gap-4 border-b border-white/10 pb-3">
-                    <div>
+                  <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-white/10 pb-3">
+                    <div className="min-w-0">
                       <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
                         Categoria
                       </div>
-                      <h3 className="mt-1 text-2xl font-black text-white">{c.nome}</h3>
+                      <h3 className="mt-1 font-black text-white text-[clamp(1.25rem,4vw,1.5rem)]">{c.nome}</h3>
                     </div>
-                    <a href="#ferramentas" className="text-xs text-white/50 hover:text-[#f5d572]">
+                    <a href="#ferramentas" className="shrink-0 text-xs text-white/50 hover:text-[#f5d572]">
                       ← voltar ao mapa
                     </a>
                   </div>
+
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     {c.tools.map((t) => (
                       <div
@@ -707,11 +710,11 @@ function MapaVIP() {
                   <h3 className="text-lg font-bold text-white">{r.titulo}</h3>
                   <ol className="mt-4 space-y-3">
                     {r.itens.map((i, idx) => (
-                      <li key={i.nome} className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3">
+                      <li key={i.nome} className="flex flex-wrap items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3">
                         <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#d4af37]/15 text-sm font-black text-[#f5d572]">
                           {idx + 1}
                         </span>
-                        <a href={i.anchor} className="flex-1 min-w-0">
+                        <a href={i.anchor} className="min-w-0 flex-1">
                           <div className="text-sm font-semibold text-white hover:text-[#f5d572]">{i.nome}</div>
                           <div className="text-xs text-white/60">{i.obs}</div>
                         </a>
@@ -719,11 +722,12 @@ function MapaVIP() {
                           href={i.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="shrink-0 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-[11px] font-semibold text-black"
+                          className="inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-[11px] font-semibold text-black min-h-11"
                         >
                           Abrir no Plati →
                         </a>
                       </li>
+
                     ))}
                   </ol>
                 </div>
@@ -792,18 +796,19 @@ function MapaVIP() {
             <div className="space-y-10">
               {STACKS.map((s) => (
                 <div key={s.slug} id={`stack-${s.slug}`} className="scroll-mt-24">
-                  <div className="mb-4 flex items-end justify-between gap-4 border-b border-white/10 pb-3">
-                    <div>
+                  <div className="mb-4 flex flex-wrap items-end justify-between gap-3 border-b border-white/10 pb-3">
+                    <div className="min-w-0">
                       <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
                         Stack
                       </div>
-                      <h3 className="mt-1 text-2xl font-black text-white">{s.papel}</h3>
+                      <h3 className="mt-1 font-black text-white text-[clamp(1.25rem,4vw,1.5rem)]">{s.papel}</h3>
                       <p className="mt-1 text-sm text-white/60">{s.uso}</p>
                     </div>
-                    <a href="#stacks" className="text-xs text-white/50 hover:text-[#f5d572]">
+                    <a href="#stacks" className="shrink-0 text-xs text-white/50 hover:text-[#f5d572]">
                       ← voltar aos stacks
                     </a>
                   </div>
+
                   <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {s.detalhe.map((d) => (
                       <div key={d.nome} className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-4">
@@ -890,15 +895,16 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-24 py-16 sm:py-20">
+    <section id={id} className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
       <div className="mb-8 max-w-3xl">
         <div className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
           {eyebrow}
         </div>
-        <h2 className="mt-2 text-3xl font-black tracking-tight text-white sm:text-4xl">
+        <h2 className="mt-2 font-black tracking-tight text-white text-[clamp(1.75rem,5vw,2.25rem)]">
           {titulo}
         </h2>
       </div>
+
       {children}
     </section>
   );
