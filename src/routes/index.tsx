@@ -351,12 +351,12 @@ function MapaVIP() {
       <div className="relative z-10">
         {/* Header */}
         <header className="sticky top-0 z-30 border-b border-white/5 bg-[#0b0a07]/80 backdrop-blur-xl">
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-            <a href="#top" className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#8a6a1a] text-sm font-black text-black shadow-[0_0_30px_rgba(212,175,55,0.35)]">
+          <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:flex lg:justify-between">
+            <a href="#top" className="flex min-w-0 items-center gap-2 sm:gap-3">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#8a6a1a] text-sm font-black text-black shadow-[0_0_30px_rgba(212,175,55,0.35)]">
                 IA
               </span>
-              <span className="text-sm font-semibold tracking-tight sm:text-base">
+              <span className="truncate text-sm font-semibold tracking-tight sm:text-base">
                 Mapa das IAs Baratas
               </span>
             </a>
@@ -369,12 +369,13 @@ function MapaVIP() {
             </nav>
             <a
               href="#comece-aqui"
-              className="rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black shadow-[0_0_30px_rgba(212,175,55,0.35)] sm:text-sm"
+              className="inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black shadow-[0_0_30px_rgba(212,175,55,0.35)] min-h-11 sm:text-sm"
             >
               Área VIP
             </a>
           </div>
         </header>
+
 
         <main id="top" className="mx-auto max-w-7xl px-4 sm:px-6">
           {/* HERO */}
