@@ -484,6 +484,31 @@ function MapaVIP() {
 
           {/* SEÇÃO 2 — Como comprar (prints) */}
           <Section id="como-comprar" eyebrow="Como comprar" titulo="Entenda onde olhar antes de comprar">
+            <div className="mb-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-[#d4af37]/30 bg-[#d4af37]/5 p-5">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
+                  Antes de começar
+                </div>
+                <h3 className="mt-1 text-base font-bold text-white">Mude o idioma e a moeda no rodapé do Plati</h3>
+                <p className="mt-2 text-sm text-white/75">
+                  Ao abrir o Plati.Market, role até o rodapé do site e altere o seletor para{" "}
+                  <strong className="text-[#f5d572]">USD</strong> e{" "}
+                  <strong className="text-[#f5d572]">English</strong>. Assim você vê preços em dólar
+                  e a página inteira traduzida — igual aos prints abaixo.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-emerald-400/30 bg-emerald-400/5 p-5">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-emerald-300">
+                  Pagamento
+                </div>
+                <h3 className="mt-1 text-base font-bold text-white">Pode pagar com Pix</h3>
+                <p className="mt-2 text-sm text-white/75">
+                  Todas as ofertas do Plati.Market aceitam{" "}
+                  <strong className="text-emerald-300">Pix</strong> como forma de pagamento. Basta
+                  escolher Pix no checkout — sem precisar de cartão internacional.
+                </p>
+              </div>
+            </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {PRINTS.map((p, i) => (
                 <div
