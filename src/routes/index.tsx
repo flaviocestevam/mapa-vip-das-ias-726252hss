@@ -820,15 +820,32 @@ function MapaVIP() {
                     </a>
                   </div>
 
-                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                    {s.detalhe.map((d) => (
-                      <div key={d.nome} className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-4">
-                        <div className="text-sm font-semibold text-white">{d.nome}</div>
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+                    {s.detalhe.map((d, i) => (
+                      <div
+                        key={d.nome}
+                        className="group relative flex flex-col rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-5 transition hover:border-[#f5d572]/40 hover:from-[#f5d572]/[0.06]"
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#f5d572]/10 text-sm font-black text-[#f5d572]">
+                            {i + 1}
+                          </div>
+                          <span className="rounded-full border border-[#f5d572]/30 bg-[#f5d572]/10 px-2 py-0.5 text-[10px] font-semibold text-[#f5d572]">
+                            {d.economia}
+                          </span>
+                        </div>
+                        <div className="mt-3 text-base font-bold text-white">{d.nome}</div>
+                        <div className="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-white/40">
+                          {d.funcao}
+                        </div>
+                        <p className="mt-3 flex-1 text-sm leading-relaxed text-white/70">
+                          {d.papelNoStack}
+                        </p>
                         <a
                           href={d.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black"
+                          className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black transition hover:brightness-110"
                         >
                           Abrir opções no Plati →
                         </a>
