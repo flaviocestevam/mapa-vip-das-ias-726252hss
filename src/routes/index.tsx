@@ -59,6 +59,7 @@ const CATEGORIAS: Categoria[] = [
       { slug: "gemini", nome: "Gemini", para: "Pesquisa, integração Google e multimodal", tipo: "Acesso compartilhado", oficial: "R$ 95/mês", encontrado: "R$ 22/mês", economia: "~76%", atencao: "Média", link: "https://plati.market/search/gemini" },
       { slug: "perplexity", nome: "Perplexity", para: "Busca com IA e fontes citadas", tipo: "Conta pro", oficial: "R$ 100/mês", encontrado: "R$ 29/mês", economia: "~71%", atencao: "Baixa", link: "https://plati.market/search/perplexity" },
       { slug: "copilot", nome: "Microsoft Copilot", para: "Office, Word, Excel e produtividade", tipo: "Licença", oficial: "R$ 110/mês", encontrado: "R$ 35/mês", economia: "~68%", atencao: "Média", link: "https://plati.market/search/copilot" },
+      { slug: "grok", nome: "Grok", para: "Respostas rápidas com tom direto e atual", tipo: "Acesso compartilhado", oficial: "R$ 160/mês", encontrado: "R$ 29/mês", economia: "~82%", atencao: "Média", link: "https://plati.market/search/grok" },
     ],
   },
   {
@@ -72,6 +73,7 @@ const CATEGORIAS: Categoria[] = [
       { slug: "freepik", nome: "Freepik", para: "Banco de imagens e IA generativa", tipo: "Premium anual", oficial: "R$ 600/ano", encontrado: "R$ 59/ano", economia: "~90%", atencao: "Baixa", link: "https://plati.market/search/freepik" },
       { slug: "adobe-firefly", nome: "Adobe Firefly", para: "Geração e edição integradas à Adobe", tipo: "Acesso compartilhado", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/adobe%20firefly" },
       { slug: "canva-img", nome: "Canva Pro", para: "Criação visual com biblioteca completa", tipo: "Plano família", oficial: "R$ 44/mês", encontrado: "R$ 9/mês", economia: "~80%", atencao: "Baixa", link: "https://plati.market/search/canva%20pro" },
+      { slug: "ideogram", nome: "Ideogram", para: "Imagens com tipografia e textos legíveis", tipo: "Plano com créditos", oficial: "R$ 100/mês", encontrado: "R$ 22/mês", economia: "~78%", atencao: "Média", link: "https://plati.market/search/ideogram" },
     ],
   },
   {
@@ -99,6 +101,7 @@ const CATEGORIAS: Categoria[] = [
       { slug: "speechify", nome: "Speechify", para: "Leitura de textos em voz natural", tipo: "Licença", oficial: "R$ 80/mês", encontrado: "R$ 19/mês", economia: "~76%", atencao: "Baixa", link: "https://plati.market/search/speechify" },
       { slug: "suno", nome: "Suno", para: "Geração de músicas com IA", tipo: "Plano com créditos", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/suno" },
       { slug: "udio", nome: "Udio", para: "Geração de músicas e trilhas", tipo: "Plano com créditos", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/udio" },
+      { slug: "descript", nome: "Descript", para: "Edição de áudio e podcast com IA", tipo: "Licença", oficial: "R$ 130/mês", encontrado: "R$ 29/mês", economia: "~77%", atencao: "Baixa", link: "https://plati.market/search/descript" },
     ],
   },
   {
@@ -112,6 +115,7 @@ const CATEGORIAS: Categoria[] = [
       { slug: "motion-array", nome: "Motion Array", para: "Templates de vídeo e After Effects", tipo: "Assinatura anual", oficial: "R$ 720/ano", encontrado: "R$ 79/ano", economia: "~89%", atencao: "Média", link: "https://plati.market/search/motion%20array" },
       { slug: "creative-fabrica", nome: "Creative Fabrica", para: "Fontes, gráficos e crafts", tipo: "Assinatura anual", oficial: "R$ 600/ano", encontrado: "R$ 69/ano", economia: "~88%", atencao: "Baixa", link: "https://plati.market/search/creative%20fabrica" },
       { slug: "placeit", nome: "Placeit", para: "Mockups e templates de marca", tipo: "Assinatura anual", oficial: "R$ 360/ano", encontrado: "R$ 49/ano", economia: "~86%", atencao: "Baixa", link: "https://plati.market/search/placeit" },
+      { slug: "figma", nome: "Figma", para: "Design de interfaces colaborativo", tipo: "Plano profissional", oficial: "R$ 90/mês", encontrado: "R$ 19/mês", economia: "~78%", atencao: "Média", link: "https://plati.market/search/figma" },
     ],
   },
   {
@@ -125,6 +129,7 @@ const CATEGORIAS: Categoria[] = [
       { slug: "zapier", nome: "Zapier", para: "Conectores e automações entre apps", tipo: "Plano com créditos", oficial: "R$ 120/mês", encontrado: "R$ 35/mês", economia: "~71%", atencao: "Média", link: "https://plati.market/search/zapier" },
       { slug: "gamma", nome: "Gamma", para: "Apresentações em minutos com IA", tipo: "Plano com créditos", oficial: "R$ 70/mês", encontrado: "R$ 19/mês", economia: "~73%", atencao: "Baixa", link: "https://plati.market/search/gamma" },
       { slug: "apis", nome: "APIs / créditos", para: "Créditos para APIs de IA (OpenAI, etc.)", tipo: "Créditos", oficial: "R$ 100/mês", encontrado: "R$ 29/mês", economia: "~71%", atencao: "Média", link: "https://plati.market/search/api%20ai" },
+      { slug: "n8n", nome: "n8n", para: "Automação open-source com nós e fluxos", tipo: "Plano cloud", oficial: "R$ 110/mês", encontrado: "R$ 29/mês", economia: "~74%", atencao: "Média", link: "https://plati.market/search/n8n" },
     ],
   },
 ];
