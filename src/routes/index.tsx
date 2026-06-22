@@ -188,7 +188,13 @@ const GLOSSARIO = [
   { termo: "Garantia", desc: "Prazo em que o vendedor cobre problemas com o acesso." },
 ];
 
-type StackTool = { nome: string; link: string };
+type StackTool = {
+  nome: string;
+  funcao: string;
+  papelNoStack: string;
+  economia: string;
+  link: string;
+};
 type Stack = {
   slug: string;
   papel: string;
@@ -206,10 +212,10 @@ const STACKS: Stack[] = [
     tools: ["ChatGPT", "Canva", "CapCut", "ElevenLabs"],
     economia: "R$ 250/mês",
     detalhe: [
-      { nome: "ChatGPT Plus", link: "https://plati.market/search/chatgpt" },
-      { nome: "Canva Pro", link: "https://plati.market/search/canva%20pro" },
-      { nome: "CapCut Pro", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "ElevenLabs", link: "https://plati.market/search/elevenlabs" },
+      { nome: "ChatGPT Plus", funcao: "IA de texto", papelNoStack: "Gera roteiros, títulos e ideias de conteúdo", economia: "~85% off", link: "https://plati.market/search/chatgpt" },
+      { nome: "Canva Pro", funcao: "Design gráfico", papelNoStack: "Cria thumbnails, capas e posts prontos", economia: "~80% off", link: "https://plati.market/search/canva%20pro" },
+      { nome: "CapCut Pro", funcao: "Edição de vídeo", papelNoStack: "Edita Reels, Shorts e cortes com efeitos pro", economia: "~90% off", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "ElevenLabs", funcao: "Voz por IA", papelNoStack: "Faz narração realista para vídeos sem gravar", economia: "~75% off", link: "https://plati.market/search/elevenlabs" },
     ],
   },
   {
@@ -219,10 +225,10 @@ const STACKS: Stack[] = [
     tools: ["ChatGPT", "Canva", "Freepik", "CapCut"],
     economia: "R$ 220/mês",
     detalhe: [
-      { nome: "ChatGPT Plus", link: "https://plati.market/search/chatgpt" },
-      { nome: "Canva Pro", link: "https://plati.market/search/canva%20pro" },
-      { nome: "Freepik", link: "https://plati.market/search/freepik" },
-      { nome: "CapCut Pro", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "ChatGPT Plus", funcao: "IA de texto", papelNoStack: "Escreve legendas, copys e calendário de posts", economia: "~85% off", link: "https://plati.market/search/chatgpt" },
+      { nome: "Canva Pro", funcao: "Design gráfico", papelNoStack: "Monta feeds, stories e carrosséis em minutos", economia: "~80% off", link: "https://plati.market/search/canva%20pro" },
+      { nome: "Freepik", funcao: "Banco de mídia", papelNoStack: "Fotos, vetores e mockups premium para os criativos", economia: "~90% off", link: "https://plati.market/search/freepik" },
+      { nome: "CapCut Pro", funcao: "Edição de vídeo", papelNoStack: "Corta e legenda vídeos curtos para redes", economia: "~90% off", link: "https://plati.market/search/capcut%20pro" },
     ],
   },
   {
@@ -232,10 +238,10 @@ const STACKS: Stack[] = [
     tools: ["Midjourney", "Canva", "Freepik", "Adobe Firefly"],
     economia: "R$ 380/mês",
     detalhe: [
-      { nome: "Midjourney", link: "https://plati.market/search/midjourney" },
-      { nome: "Canva Pro", link: "https://plati.market/search/canva%20pro" },
-      { nome: "Freepik", link: "https://plati.market/search/freepik" },
-      { nome: "Adobe Firefly", link: "https://plati.market/search/adobe%20firefly" },
+      { nome: "Midjourney", funcao: "IA de imagem", papelNoStack: "Gera artes conceituais e ilustrações exclusivas", economia: "~80% off", link: "https://plati.market/search/midjourney" },
+      { nome: "Canva Pro", funcao: "Design gráfico", papelNoStack: "Diagrama apresentações, social kits e identidade", economia: "~80% off", link: "https://plati.market/search/canva%20pro" },
+      { nome: "Freepik", funcao: "Banco de mídia", papelNoStack: "Vetores, ícones e mockups para acelerar layouts", economia: "~90% off", link: "https://plati.market/search/freepik" },
+      { nome: "Adobe Firefly", funcao: "IA generativa", papelNoStack: "Preenche, expande e remove elementos com IA", economia: "~70% off", link: "https://plati.market/search/adobe%20firefly" },
     ],
   },
   {
@@ -245,10 +251,10 @@ const STACKS: Stack[] = [
     tools: ["CapCut", "Runway", "Kling", "ElevenLabs"],
     economia: "R$ 450/mês",
     detalhe: [
-      { nome: "CapCut Pro", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "Runway", link: "https://plati.market/search/runway" },
-      { nome: "Kling", link: "https://plati.market/search/kling" },
-      { nome: "ElevenLabs", link: "https://plati.market/search/elevenlabs" },
+      { nome: "CapCut Pro", funcao: "Edição de vídeo", papelNoStack: "Edição completa com efeitos, transições e legendas", economia: "~90% off", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "Runway", funcao: "IA de vídeo", papelNoStack: "Gera, expande e edita cenas com IA generativa", economia: "~70% off", link: "https://plati.market/search/runway" },
+      { nome: "Kling", funcao: "IA de vídeo", papelNoStack: "Cria clipes a partir de texto ou imagem (texto→vídeo)", economia: "~75% off", link: "https://plati.market/search/kling" },
+      { nome: "ElevenLabs", funcao: "Voz por IA", papelNoStack: "Dublagem e narração realista em vários idiomas", economia: "~75% off", link: "https://plati.market/search/elevenlabs" },
     ],
   },
   {
@@ -258,10 +264,10 @@ const STACKS: Stack[] = [
     tools: ["ChatGPT", "Canva", "Gamma", "ElevenLabs"],
     economia: "R$ 300/mês",
     detalhe: [
-      { nome: "ChatGPT Plus", link: "https://plati.market/search/chatgpt" },
-      { nome: "Canva Pro", link: "https://plati.market/search/canva%20pro" },
-      { nome: "Gamma", link: "https://plati.market/search/gamma" },
-      { nome: "ElevenLabs", link: "https://plati.market/search/elevenlabs" },
+      { nome: "ChatGPT Plus", funcao: "IA de texto", papelNoStack: "Estrutura módulos, aulas, e-mails e copy de venda", economia: "~85% off", link: "https://plati.market/search/chatgpt" },
+      { nome: "Canva Pro", funcao: "Design gráfico", papelNoStack: "Cria apostilas, slides e capas de módulo", economia: "~80% off", link: "https://plati.market/search/canva%20pro" },
+      { nome: "Gamma", funcao: "Apresentações IA", papelNoStack: "Gera slides e páginas de aula em segundos", economia: "~75% off", link: "https://plati.market/search/gamma" },
+      { nome: "ElevenLabs", funcao: "Voz por IA", papelNoStack: "Narra as aulas sem precisar gravar a própria voz", economia: "~75% off", link: "https://plati.market/search/elevenlabs" },
     ],
   },
   {
@@ -271,10 +277,10 @@ const STACKS: Stack[] = [
     tools: ["ChatGPT", "Notion", "Canva", "Automação"],
     economia: "R$ 500/mês",
     detalhe: [
-      { nome: "ChatGPT Plus", link: "https://plati.market/search/chatgpt" },
-      { nome: "Notion AI", link: "https://plati.market/search/notion%20ai" },
-      { nome: "Canva Pro", link: "https://plati.market/search/canva%20pro" },
-      { nome: "Make / Zapier", link: "https://plati.market/search/make" },
+      { nome: "ChatGPT Plus", funcao: "IA de texto", papelNoStack: "Briefings, propostas e respostas para clientes", economia: "~85% off", link: "https://plati.market/search/chatgpt" },
+      { nome: "Notion AI", funcao: "Gestão + IA", papelNoStack: "Organiza projetos, tarefas e documentação", economia: "~70% off", link: "https://plati.market/search/notion%20ai" },
+      { nome: "Canva Pro", funcao: "Design gráfico", papelNoStack: "Entrega criativos e identidade para os clientes", economia: "~80% off", link: "https://plati.market/search/canva%20pro" },
+      { nome: "Make / Zapier", funcao: "Automação", papelNoStack: "Automatiza entregas, integrações e relatórios", economia: "~70% off", link: "https://plati.market/search/make" },
     ],
   },
 ];
