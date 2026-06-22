@@ -636,11 +636,6 @@ function MapaVIP() {
                         <td className="px-4 py-3 font-semibold text-[#86efac]">{o.encontrado}</td>
                         <td className="px-4 py-3 font-semibold text-[#f5d572]">{o.economia}</td>
                         <td className="px-4 py-3">
-                          <span className={`rounded-full px-2 py-0.5 text-xs ${o.atencao === "Baixa" ? "bg-emerald-500/10 text-emerald-300" : "bg-amber-500/10 text-amber-300"}`}>
-                            {o.atencao}
-                          </span>
-                        </td>
-                        <td className="px-4 py-3">
                           <a
                             href={o.link}
                             target="_blank"
