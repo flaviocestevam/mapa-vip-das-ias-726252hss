@@ -341,7 +341,7 @@ function MapaVIP() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0b0a07] text-[#f5efe0] antialiased scroll-smooth">
+    <div className="min-h-dvh overflow-x-hidden bg-[#0b0a07] text-[#f5efe0] antialiased scroll-smooth">
       {/* Glow background */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         <div className="absolute -top-40 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(212,175,55,0.18),transparent)]" />
