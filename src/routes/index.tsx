@@ -796,18 +796,19 @@ function MapaVIP() {
             <div className="space-y-10">
               {STACKS.map((s) => (
                 <div key={s.slug} id={`stack-${s.slug}`} className="scroll-mt-24">
-                  <div className="mb-4 flex items-end justify-between gap-4 border-b border-white/10 pb-3">
-                    <div>
+                  <div className="mb-4 flex flex-wrap items-end justify-between gap-3 border-b border-white/10 pb-3">
+                    <div className="min-w-0">
                       <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
                         Stack
                       </div>
-                      <h3 className="mt-1 text-2xl font-black text-white">{s.papel}</h3>
+                      <h3 className="mt-1 font-black text-white text-[clamp(1.25rem,4vw,1.5rem)]">{s.papel}</h3>
                       <p className="mt-1 text-sm text-white/60">{s.uso}</p>
                     </div>
-                    <a href="#stacks" className="text-xs text-white/50 hover:text-[#f5d572]">
+                    <a href="#stacks" className="shrink-0 text-xs text-white/50 hover:text-[#f5d572]">
                       ← voltar aos stacks
                     </a>
                   </div>
+
                   <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {s.detalhe.map((d) => (
                       <div key={d.nome} className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-4">
