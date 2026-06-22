@@ -21,42 +21,105 @@ export const Route = createFileRoute("/")({
   component: MapaVIP,
 });
 
-const CATEGORIAS = [
+type Ferramenta = {
+  slug: string;
+  nome: string;
+  para: string;
+  tipo: string;
+  oficial: string;
+  encontrado: string;
+  economia: string;
+  atencao: "Baixa" | "Média";
+  link: string;
+};
+
+type Categoria = {
+  slug: string;
+  nome: string;
+  desc: string;
+  cat: string;
+  tools: Ferramenta[];
+};
+
+const CATEGORIAS: Categoria[] = [
   {
+    slug: "texto",
     nome: "Texto, pesquisa e produtividade",
     desc: "Assistentes de escrita, pesquisa e raciocínio para o dia a dia.",
     cat: "Texto",
-    tools: ["ChatGPT", "Claude", "Gemini", "Perplexity", "Microsoft Copilot"],
+    tools: [
+      { slug: "chatgpt", nome: "ChatGPT Plus", para: "Roteiros, ideias e respostas rápidas", tipo: "Conta compartilhada", oficial: "R$ 120/mês", encontrado: "R$ 19/mês", economia: "~84%", atencao: "Baixa", link: "https://plati.market/search/chatgpt" },
+      { slug: "claude", nome: "Claude", para: "Texto longo, análise e raciocínio cuidadoso", tipo: "Acesso compartilhado", oficial: "R$ 100/mês", encontrado: "R$ 25/mês", economia: "~75%", atencao: "Média", link: "https://plati.market/search/claude" },
+      { slug: "gemini", nome: "Gemini", para: "Pesquisa, integração Google e multimodal", tipo: "Acesso compartilhado", oficial: "R$ 95/mês", encontrado: "R$ 22/mês", economia: "~76%", atencao: "Média", link: "https://plati.market/search/gemini" },
+      { slug: "perplexity", nome: "Perplexity", para: "Busca com IA e fontes citadas", tipo: "Conta pro", oficial: "R$ 100/mês", encontrado: "R$ 29/mês", economia: "~71%", atencao: "Baixa", link: "https://plati.market/search/perplexity" },
+      { slug: "copilot", nome: "Microsoft Copilot", para: "Office, Word, Excel e produtividade", tipo: "Licença", oficial: "R$ 110/mês", encontrado: "R$ 35/mês", economia: "~68%", atencao: "Média", link: "https://plati.market/search/copilot" },
+    ],
   },
   {
+    slug: "imagem",
     nome: "Imagem e criação visual",
     desc: "Geração e edição de imagens para social, design e branding.",
     cat: "Imagem",
-    tools: ["Midjourney", "Leonardo AI", "Freepik", "Adobe Firefly", "Canva Pro"],
+    tools: [
+      { slug: "midjourney", nome: "Midjourney", para: "Imagens artísticas de alta qualidade", tipo: "Acesso compartilhado", oficial: "R$ 150/mês", encontrado: "R$ 29/mês", economia: "~80%", atencao: "Média", link: "https://plati.market/search/midjourney" },
+      { slug: "leonardo", nome: "Leonardo AI", para: "Imagens com controle e estilos", tipo: "Plano com créditos", oficial: "R$ 60/mês", encontrado: "R$ 15/mês", economia: "~75%", atencao: "Baixa", link: "https://plati.market/search/leonardo%20ai" },
+      { slug: "freepik", nome: "Freepik", para: "Banco de imagens e IA generativa", tipo: "Premium anual", oficial: "R$ 600/ano", encontrado: "R$ 59/ano", economia: "~90%", atencao: "Baixa", link: "https://plati.market/search/freepik" },
+      { slug: "adobe-firefly", nome: "Adobe Firefly", para: "Geração e edição integradas à Adobe", tipo: "Acesso compartilhado", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/adobe%20firefly" },
+      { slug: "canva-img", nome: "Canva Pro", para: "Criação visual com biblioteca completa", tipo: "Plano família", oficial: "R$ 44/mês", encontrado: "R$ 9/mês", economia: "~80%", atencao: "Baixa", link: "https://plati.market/search/canva%20pro" },
+    ],
   },
   {
+    slug: "video",
     nome: "Vídeo e edição",
     desc: "Ferramentas para roteiro, edição e geração de vídeos com IA.",
     cat: "Vídeo",
-    tools: ["CapCut Pro", "Runway", "Kling", "Pika", "Higgsfield", "Veo"],
+    tools: [
+      { slug: "capcut-pro", nome: "CapCut Pro", para: "Edição pro com efeitos e IA", tipo: "Licença anual", oficial: "R$ 480/ano", encontrado: "R$ 49/ano", economia: "~90%", atencao: "Baixa", link: "https://plati.market/search/capcut%20pro" },
+      { slug: "runway", nome: "Runway", para: "Geração de vídeo e efeitos com IA", tipo: "Conta com créditos", oficial: "R$ 180/mês", encontrado: "R$ 39/mês", economia: "~78%", atencao: "Média", link: "https://plati.market/search/runway" },
+      { slug: "kling", nome: "Kling", para: "Vídeos cinematográficos com IA", tipo: "Plano com créditos", oficial: "R$ 130/mês", encontrado: "R$ 29/mês", economia: "~77%", atencao: "Média", link: "https://plati.market/search/kling" },
+      { slug: "pika", nome: "Pika", para: "Vídeos curtos e animações com IA", tipo: "Plano com créditos", oficial: "R$ 110/mês", encontrado: "R$ 25/mês", economia: "~77%", atencao: "Média", link: "https://plati.market/search/pika" },
+      { slug: "higgsfield", nome: "Higgsfield", para: "Movimento de câmera e cenas geradas", tipo: "Plano com créditos", oficial: "R$ 120/mês", encontrado: "R$ 29/mês", economia: "~75%", atencao: "Média", link: "https://plati.market/search/higgsfield" },
+      { slug: "veo", nome: "Veo", para: "Geração de vídeos do Google", tipo: "Acesso compartilhado", oficial: "R$ 180/mês", encontrado: "R$ 39/mês", economia: "~78%", atencao: "Média", link: "https://plati.market/search/veo" },
+    ],
   },
   {
+    slug: "audio",
     nome: "Voz, áudio e narração",
     desc: "Clonagem de voz, narração natural e geração musical.",
     cat: "Voz",
-    tools: ["ElevenLabs", "Murf", "Speechify", "Suno", "Udio"],
+    tools: [
+      { slug: "elevenlabs", nome: "ElevenLabs", para: "Vozes naturais e clonagem", tipo: "Créditos", oficial: "R$ 110/mês", encontrado: "R$ 25/mês", economia: "~77%", atencao: "Média", link: "https://plati.market/search/elevenlabs" },
+      { slug: "murf", nome: "Murf", para: "Narração profissional para vídeos", tipo: "Plano com créditos", oficial: "R$ 95/mês", encontrado: "R$ 22/mês", economia: "~76%", atencao: "Baixa", link: "https://plati.market/search/murf" },
+      { slug: "speechify", nome: "Speechify", para: "Leitura de textos em voz natural", tipo: "Licença", oficial: "R$ 80/mês", encontrado: "R$ 19/mês", economia: "~76%", atencao: "Baixa", link: "https://plati.market/search/speechify" },
+      { slug: "suno", nome: "Suno", para: "Geração de músicas com IA", tipo: "Plano com créditos", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/suno" },
+      { slug: "udio", nome: "Udio", para: "Geração de músicas e trilhas", tipo: "Plano com créditos", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/udio" },
+    ],
   },
   {
+    slug: "design",
     nome: "Design, templates e criativos",
     desc: "Bibliotecas de templates, mockups e elementos prontos.",
     cat: "Design",
-    tools: ["Canva Pro", "Envato", "Motion Array", "Creative Fabrica", "Placeit"],
+    tools: [
+      { slug: "canva", nome: "Canva Pro", para: "Criação visual com biblioteca completa", tipo: "Plano família", oficial: "R$ 44/mês", encontrado: "R$ 9/mês", economia: "~80%", atencao: "Baixa", link: "https://plati.market/search/canva%20pro" },
+      { slug: "envato", nome: "Envato Elements", para: "Biblioteca infinita de assets e templates", tipo: "Assinatura anual", oficial: "R$ 990/ano", encontrado: "R$ 89/ano", economia: "~91%", atencao: "Média", link: "https://plati.market/search/envato" },
+      { slug: "motion-array", nome: "Motion Array", para: "Templates de vídeo e After Effects", tipo: "Assinatura anual", oficial: "R$ 720/ano", encontrado: "R$ 79/ano", economia: "~89%", atencao: "Média", link: "https://plati.market/search/motion%20array" },
+      { slug: "creative-fabrica", nome: "Creative Fabrica", para: "Fontes, gráficos e crafts", tipo: "Assinatura anual", oficial: "R$ 600/ano", encontrado: "R$ 69/ano", economia: "~88%", atencao: "Baixa", link: "https://plati.market/search/creative%20fabrica" },
+      { slug: "placeit", nome: "Placeit", para: "Mockups e templates de marca", tipo: "Assinatura anual", oficial: "R$ 360/ano", encontrado: "R$ 49/ano", economia: "~86%", atencao: "Baixa", link: "https://plati.market/search/placeit" },
+    ],
   },
   {
+    slug: "automacao",
     nome: "Automação e negócios",
     desc: "Automação de fluxos, APIs e produtividade para times.",
     cat: "Produtividade",
-    tools: ["Notion AI", "Make", "Zapier", "Gamma", "APIs / créditos"],
+    tools: [
+      { slug: "notion", nome: "Notion AI", para: "Organização e IA dentro do Notion", tipo: "Add-on", oficial: "R$ 50/mês", encontrado: "R$ 12/mês", economia: "~76%", atencao: "Baixa", link: "https://plati.market/search/notion%20ai" },
+      { slug: "make", nome: "Make", para: "Automação visual de fluxos", tipo: "Plano com créditos", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/make" },
+      { slug: "zapier", nome: "Zapier", para: "Conectores e automações entre apps", tipo: "Plano com créditos", oficial: "R$ 120/mês", encontrado: "R$ 35/mês", economia: "~71%", atencao: "Média", link: "https://plati.market/search/zapier" },
+      { slug: "gamma", nome: "Gamma", para: "Apresentações em minutos com IA", tipo: "Plano com créditos", oficial: "R$ 70/mês", encontrado: "R$ 19/mês", economia: "~73%", atencao: "Baixa", link: "https://plati.market/search/gamma" },
+      { slug: "apis", nome: "APIs / créditos", para: "Créditos para APIs de IA (OpenAI, etc.)", tipo: "Créditos", oficial: "R$ 100/mês", encontrado: "R$ 29/mês", economia: "~71%", atencao: "Média", link: "https://plati.market/search/api%20ai" },
+    ],
   },
 ];
 
@@ -72,7 +135,6 @@ const OFERTAS = [
   { tool: "Notion AI", cat: "Produtividade", tipo: "Add-on", oficial: "R$ 50/mês", encontrado: "R$ 12/mês", economia: "~76%", atencao: "Baixa", link: "https://plati.market/search/notion%20ai" },
   { tool: "Envato Elements", cat: "Design", tipo: "Assinatura anual", oficial: "R$ 990/ano", encontrado: "R$ 89/ano", economia: "~91%", atencao: "Média", link: "https://plati.market/search/envato" },
 ];
-
 
 const PRINTS = [
   { titulo: "Busca por ferramentas", legenda: "Use a busca para encontrar ofertas relacionadas à ferramenta que você quer." },
@@ -115,52 +177,131 @@ const GLOSSARIO = [
   { termo: "Garantia", desc: "Prazo em que o vendedor cobre problemas com o acesso." },
 ];
 
-const STACKS = [
-  { papel: "Criador de conteúdo", uso: "Roteiro, design e edição rápida", tools: ["ChatGPT", "Canva", "CapCut", "ElevenLabs"], economia: "R$ 250/mês", link: "https://plati.market/search/ai" },
-  { papel: "Social media", uso: "Posts, criativos e legendas", tools: ["ChatGPT", "Canva", "Freepik", "CapCut"], economia: "R$ 220/mês", link: "https://plati.market/search/ai" },
-  { papel: "Designer", uso: "Imagens, mockups e identidade", tools: ["Midjourney", "Canva", "Freepik", "Adobe Firefly"], economia: "R$ 380/mês", link: "https://plati.market/search/ai" },
-  { papel: "Editor de vídeo", uso: "Edição, dublagem e geração de cenas", tools: ["CapCut", "Runway", "Kling", "ElevenLabs"], economia: "R$ 450/mês", link: "https://plati.market/search/ai" },
-  { papel: "Infoprodutor", uso: "Aulas, materiais e apresentações", tools: ["ChatGPT", "Canva", "Gamma", "ElevenLabs"], economia: "R$ 300/mês", link: "https://plati.market/search/ai" },
-  { papel: "Freelancer / agência", uso: "Produtividade e automação de entregas", tools: ["ChatGPT", "Notion", "Canva", "Automação"], economia: "R$ 500/mês", link: "https://plati.market/search/ai" },
+type StackTool = { nome: string; link: string };
+type Stack = {
+  slug: string;
+  papel: string;
+  uso: string;
+  tools: string[];
+  economia: string;
+  detalhe: StackTool[];
+};
+
+const STACKS: Stack[] = [
+  {
+    slug: "criador",
+    papel: "Criador de conteúdo",
+    uso: "Roteiro, design e edição rápida",
+    tools: ["ChatGPT", "Canva", "CapCut", "ElevenLabs"],
+    economia: "R$ 250/mês",
+    detalhe: [
+      { nome: "ChatGPT Plus", link: "https://plati.market/search/chatgpt" },
+      { nome: "Canva Pro", link: "https://plati.market/search/canva%20pro" },
+      { nome: "CapCut Pro", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "ElevenLabs", link: "https://plati.market/search/elevenlabs" },
+    ],
+  },
+  {
+    slug: "social-media",
+    papel: "Social media",
+    uso: "Posts, criativos e legendas",
+    tools: ["ChatGPT", "Canva", "Freepik", "CapCut"],
+    economia: "R$ 220/mês",
+    detalhe: [
+      { nome: "ChatGPT Plus", link: "https://plati.market/search/chatgpt" },
+      { nome: "Canva Pro", link: "https://plati.market/search/canva%20pro" },
+      { nome: "Freepik", link: "https://plati.market/search/freepik" },
+      { nome: "CapCut Pro", link: "https://plati.market/search/capcut%20pro" },
+    ],
+  },
+  {
+    slug: "designer",
+    papel: "Designer",
+    uso: "Imagens, mockups e identidade",
+    tools: ["Midjourney", "Canva", "Freepik", "Adobe Firefly"],
+    economia: "R$ 380/mês",
+    detalhe: [
+      { nome: "Midjourney", link: "https://plati.market/search/midjourney" },
+      { nome: "Canva Pro", link: "https://plati.market/search/canva%20pro" },
+      { nome: "Freepik", link: "https://plati.market/search/freepik" },
+      { nome: "Adobe Firefly", link: "https://plati.market/search/adobe%20firefly" },
+    ],
+  },
+  {
+    slug: "editor-video",
+    papel: "Editor de vídeo",
+    uso: "Edição, dublagem e geração de cenas",
+    tools: ["CapCut", "Runway", "Kling", "ElevenLabs"],
+    economia: "R$ 450/mês",
+    detalhe: [
+      { nome: "CapCut Pro", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "Runway", link: "https://plati.market/search/runway" },
+      { nome: "Kling", link: "https://plati.market/search/kling" },
+      { nome: "ElevenLabs", link: "https://plati.market/search/elevenlabs" },
+    ],
+  },
+  {
+    slug: "infoprodutor",
+    papel: "Infoprodutor",
+    uso: "Aulas, materiais e apresentações",
+    tools: ["ChatGPT", "Canva", "Gamma", "ElevenLabs"],
+    economia: "R$ 300/mês",
+    detalhe: [
+      { nome: "ChatGPT Plus", link: "https://plati.market/search/chatgpt" },
+      { nome: "Canva Pro", link: "https://plati.market/search/canva%20pro" },
+      { nome: "Gamma", link: "https://plati.market/search/gamma" },
+      { nome: "ElevenLabs", link: "https://plati.market/search/elevenlabs" },
+    ],
+  },
+  {
+    slug: "freelancer-agencia",
+    papel: "Freelancer / agência",
+    uso: "Produtividade e automação de entregas",
+    tools: ["ChatGPT", "Notion", "Canva", "Automação"],
+    economia: "R$ 500/mês",
+    detalhe: [
+      { nome: "ChatGPT Plus", link: "https://plati.market/search/chatgpt" },
+      { nome: "Notion AI", link: "https://plati.market/search/notion%20ai" },
+      { nome: "Canva Pro", link: "https://plati.market/search/canva%20pro" },
+      { nome: "Make / Zapier", link: "https://plati.market/search/make" },
+    ],
+  },
 ];
-
-
 
 const RANKINGS = [
   {
     titulo: "Maiores economias encontradas",
     itens: [
-      { nome: "Envato Elements", obs: "Anual com economia de ~91%", link: "https://plati.market/search/envato" },
-      { nome: "CapCut Pro", obs: "Licença anual com ~90% off", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "Freepik Premium", obs: "Anual com ~90% off", link: "https://plati.market/search/freepik" },
+      { nome: "Envato Elements", obs: "Anual com economia de ~91%", anchor: "#ferramenta-envato", link: "https://plati.market/search/envato" },
+      { nome: "CapCut Pro", obs: "Licença anual com ~90% off", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "Freepik Premium", obs: "Anual com ~90% off", anchor: "#ferramenta-freepik", link: "https://plati.market/search/freepik" },
     ],
   },
   {
     titulo: "Melhores para criadores de conteúdo",
     itens: [
-      { nome: "ChatGPT Plus", obs: "Roteiros e ideias ilimitadas", link: "https://plati.market/search/chatgpt" },
-      { nome: "Canva Pro", obs: "Criativos rápidos", link: "https://plati.market/search/canva%20pro" },
-      { nome: "ElevenLabs", obs: "Narrações naturais", link: "https://plati.market/search/elevenlabs" },
+      { nome: "ChatGPT Plus", obs: "Roteiros e ideias ilimitadas", anchor: "#ferramenta-chatgpt", link: "https://plati.market/search/chatgpt" },
+      { nome: "Canva Pro", obs: "Criativos rápidos", anchor: "#ferramenta-canva", link: "https://plati.market/search/canva%20pro" },
+      { nome: "ElevenLabs", obs: "Narrações naturais", anchor: "#ferramenta-elevenlabs", link: "https://plati.market/search/elevenlabs" },
     ],
   },
   {
     titulo: "Melhores para quem trabalha com vídeo",
     itens: [
-      { nome: "CapCut Pro", obs: "Edição pro acessível", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "Runway", obs: "Geração e efeitos", link: "https://plati.market/search/runway" },
-      { nome: "Kling", obs: "Vídeos com IA", link: "https://plati.market/search/kling" },
+      { nome: "CapCut Pro", obs: "Edição pro acessível", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "Runway", obs: "Geração e efeitos", anchor: "#ferramenta-runway", link: "https://plati.market/search/runway" },
+      { nome: "Kling", obs: "Vídeos com IA", anchor: "#ferramenta-kling", link: "https://plati.market/search/kling" },
     ],
   },
   {
     titulo: "Melhores para produtividade e negócios",
     itens: [
-      { nome: "Notion AI", obs: "Organização inteligente", link: "https://plati.market/search/notion%20ai" },
-      { nome: "Gamma", obs: "Apresentações em minutos", link: "https://plati.market/search/gamma" },
-      { nome: "Make / Zapier", obs: "Automação de fluxos", link: "https://plati.market/search/make" },
+      { nome: "Notion AI", obs: "Organização inteligente", anchor: "#ferramenta-notion", link: "https://plati.market/search/notion%20ai" },
+      { nome: "Gamma", obs: "Apresentações em minutos", anchor: "#ferramenta-gamma", link: "https://plati.market/search/gamma" },
+      { nome: "Make / Zapier", obs: "Automação de fluxos", anchor: "#ferramenta-make", link: "https://plati.market/search/make" },
     ],
   },
 ];
-
 
 const ATUALIZACOES = [
   "Novas ferramentas adicionadas",
@@ -171,10 +312,10 @@ const ATUALIZACOES = [
 ];
 
 const MENU = [
-  { label: "Comece aqui", href: "#comece" },
+  { label: "Comece aqui", href: "#comece-aqui" },
   { label: "Ferramentas", href: "#ferramentas" },
   { label: "Rankings", href: "#rankings" },
-  { label: "Como comprar", href: "#seguranca" },
+  { label: "Como comprar", href: "#como-comprar" },
   { label: "Segurança", href: "#seguranca" },
   { label: "Stacks", href: "#stacks" },
   { label: "Atualizações", href: "#atualizacoes" },
@@ -194,7 +335,7 @@ function MapaVIP() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0b0a07] text-[#f5efe0] antialiased">
+    <div className="min-h-screen bg-[#0b0a07] text-[#f5efe0] antialiased scroll-smooth">
       {/* Glow background */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         <div className="absolute -top-40 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(212,175,55,0.18),transparent)]" />
@@ -221,7 +362,7 @@ function MapaVIP() {
               ))}
             </nav>
             <a
-              href="#comece"
+              href="#comece-aqui"
               className="rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black shadow-[0_0_30px_rgba(212,175,55,0.35)] sm:text-sm"
             >
               Área VIP
@@ -268,13 +409,13 @@ function MapaVIP() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href="#comece"
+                  href="#comece-aqui"
                   className="rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-6 py-3 text-sm font-semibold text-black shadow-[0_0_40px_rgba(212,175,55,0.4)] transition hover:scale-[1.02]"
                 >
                   Começar pelo passo a passo →
                 </a>
                 <a
-                  href="#ofertas"
+                  href="#ferramentas"
                   className="rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-white/90 transition hover:bg-white/[0.06]"
                 >
                   Ver ofertas
@@ -319,7 +460,7 @@ function MapaVIP() {
           </p>
 
           {/* SEÇÃO 1 — Comece aqui */}
-          <Section id="comece" eyebrow="Comece aqui" titulo="Como usar este mapa em 5 minutos">
+          <Section id="comece-aqui" eyebrow="Comece aqui" titulo="Como usar este mapa em 5 minutos">
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {PASSOS.map((p, i) => (
                 <div
@@ -335,8 +476,8 @@ function MapaVIP() {
             </div>
           </Section>
 
-          {/* SEÇÃO 2 — Prints */}
-          <Section id="prints" eyebrow="Prints explicativos" titulo="Entenda onde olhar antes de comprar">
+          {/* SEÇÃO 2 — Como comprar (prints) */}
+          <Section id="como-comprar" eyebrow="Como comprar" titulo="Entenda onde olhar antes de comprar">
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {PRINTS.map((p, i) => (
                 <div
@@ -354,9 +495,6 @@ function MapaVIP() {
                   </div>
                   <div className="p-5">
                     <p className="text-sm text-white/70">{p.legenda}</p>
-                    <button className="mt-4 rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/70 hover:bg-white/[0.04]">
-                      Substituir pelo print real
-                    </button>
                   </div>
                 </div>
               ))}
@@ -365,10 +503,15 @@ function MapaVIP() {
 
           {/* SEÇÃO 3 — Mapa de categorias */}
           <Section id="ferramentas" eyebrow="Mapa principal" titulo="Mapa das ferramentas por categoria">
+            <p className="mb-6 max-w-3xl text-sm text-white/70">
+              Primeiro escolha a ferramenta dentro do Mapa VIP. Depois, quando decidir qual opção
+              quer analisar, clique em <strong className="text-[#f5d572]">“Abrir opções no Plati”</strong>{" "}
+              para comparar as ofertas diretamente no marketplace.
+            </p>
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {CATEGORIAS.map((c) => (
                 <div
-                  key={c.nome}
+                  key={c.slug}
                   className="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-6 transition hover:border-[#d4af37]/40"
                 >
                   <h3 className="text-lg font-bold text-white">{c.nome}</h3>
@@ -376,19 +519,96 @@ function MapaVIP() {
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {c.tools.map((t) => (
                       <li
-                        key={t}
+                        key={t.slug}
                         className="rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 px-2.5 py-1 text-xs text-[#f5d572]"
                       >
-                        {t}
+                        {t.nome}
                       </li>
                     ))}
                   </ul>
                   <a
-                    href={`#ofertas`}
+                    href={`#categoria-${c.slug}`}
                     className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#f5d572] hover:underline"
                   >
                     Ver opções dessa categoria →
                   </a>
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          {/* SEÇÃO 3.1 — Listas internas por categoria */}
+          <Section id="listas-internas" eyebrow="Listas internas" titulo="Listas internas por categoria">
+            <p className="mb-8 max-w-3xl text-sm text-white/70">
+              Cada bloco abaixo abre as ferramentas da categoria com detalhes de oferta. Somente o
+              botão final de cada ferramenta abre o Plati.Market.
+            </p>
+            <div className="space-y-12">
+              {CATEGORIAS.map((c) => (
+                <div key={c.slug} id={`categoria-${c.slug}`} className="scroll-mt-24">
+                  <div className="mb-5 flex items-end justify-between gap-4 border-b border-white/10 pb-3">
+                    <div>
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
+                        Categoria
+                      </div>
+                      <h3 className="mt-1 text-2xl font-black text-white">{c.nome}</h3>
+                    </div>
+                    <a href="#ferramentas" className="text-xs text-white/50 hover:text-[#f5d572]">
+                      ← voltar ao mapa
+                    </a>
+                  </div>
+                  <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    {c.tools.map((t) => (
+                      <div
+                        key={t.slug}
+                        id={`ferramenta-${t.slug}`}
+                        className="scroll-mt-24 flex flex-col rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-5"
+                      >
+                        <h4 className="text-base font-bold text-white">{t.nome}</h4>
+                        <p className="mt-1 text-xs text-white/60">{t.para}</p>
+                        <dl className="mt-4 space-y-1.5 text-xs">
+                          <div className="flex justify-between gap-3">
+                            <dt className="text-white/50">Tipo</dt>
+                            <dd className="text-right text-white/85">{t.tipo}</dd>
+                          </div>
+                          <div className="flex justify-between gap-3">
+                            <dt className="text-white/50">Preço oficial</dt>
+                            <dd className="text-right text-white/50 line-through">{t.oficial}</dd>
+                          </div>
+                          <div className="flex justify-between gap-3">
+                            <dt className="text-white/50">Preço encontrado</dt>
+                            <dd className="text-right font-semibold text-[#86efac]">{t.encontrado}</dd>
+                          </div>
+                          <div className="flex justify-between gap-3">
+                            <dt className="text-white/50">Economia</dt>
+                            <dd className="text-right font-semibold text-[#f5d572]">{t.economia}</dd>
+                          </div>
+                          <div className="flex items-center justify-between gap-3">
+                            <dt className="text-white/50">Atenção</dt>
+                            <dd>
+                              <span
+                                className={`rounded-full px-2 py-0.5 text-[11px] ${
+                                  t.atencao === "Baixa"
+                                    ? "bg-emerald-500/10 text-emerald-300"
+                                    : "bg-amber-500/10 text-amber-300"
+                                }`}
+                              >
+                                {t.atencao}
+                              </span>
+                            </dd>
+                          </div>
+                        </dl>
+                        <a
+                          href={t.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black"
+                        >
+                          Abrir opções no Plati →
+                        </a>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
@@ -427,7 +647,7 @@ function MapaVIP() {
                             rel="noopener noreferrer"
                             className="rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-xs font-semibold text-black"
                           >
-                            Ver opções
+                            Abrir opções
                           </a>
                         </td>
                       </tr>
@@ -437,7 +657,7 @@ function MapaVIP() {
               </div>
             </div>
             <p className="mt-3 text-xs text-white/50">
-              Os links levam para ofertas ou buscas no Plati.Market. Antes de comprar, confira preço final, descrição, reputação do vendedor e comentários recentes.
+              Os links levam para buscas no Plati.Market. Antes de comprar, confira preço final, descrição, reputação do vendedor e comentários recentes.
             </p>
           </Section>
 
@@ -449,21 +669,21 @@ function MapaVIP() {
                   <h3 className="text-lg font-bold text-white">{r.titulo}</h3>
                   <ol className="mt-4 space-y-3">
                     {r.itens.map((i, idx) => (
-                      <li key={i.nome}>
+                      <li key={i.nome} className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3">
+                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#d4af37]/15 text-sm font-black text-[#f5d572]">
+                          {idx + 1}
+                        </span>
+                        <a href={i.anchor} className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-white hover:text-[#f5d572]">{i.nome}</div>
+                          <div className="text-xs text-white/60">{i.obs}</div>
+                        </a>
                         <a
                           href={i.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-start gap-4 rounded-xl border border-white/5 bg-white/[0.02] p-3 transition hover:border-[#d4af37]/40 hover:bg-white/[0.04]"
+                          className="shrink-0 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-[11px] font-semibold text-black"
                         >
-                          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#d4af37]/15 text-sm font-black text-[#f5d572]">
-                            {idx + 1}
-                          </span>
-                          <div>
-                            <div className="text-sm font-semibold text-white">{i.nome}</div>
-                            <div className="text-xs text-white/60">{i.obs}</div>
-                          </div>
-                          <span className="ml-auto text-xs font-semibold text-[#f5d572]">Ver opções →</span>
+                          Abrir no Plati →
                         </a>
                       </li>
                     ))}
@@ -474,7 +694,7 @@ function MapaVIP() {
           </Section>
 
           {/* SEÇÃO 6 — Checklist */}
-          <Section id="seguranca" eyebrow="Como comprar com mais segurança" titulo="Checklist antes de comprar qualquer oferta">
+          <Section id="seguranca" eyebrow="Segurança" titulo="Checklist antes de comprar qualquer oferta">
             <div className="grid gap-3 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-6 sm:grid-cols-2">
               {CHECKLIST.map((c) => (
                 <label key={c} className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3 text-sm text-white/85">
@@ -501,7 +721,7 @@ function MapaVIP() {
           <Section id="stacks" eyebrow="Stacks por profissão" titulo="Stacks econômicos prontos por objetivo">
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {STACKS.map((s) => (
-                <div key={s.papel} className="flex flex-col rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-6">
+                <div key={s.slug} className="flex flex-col rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-6">
                   <h3 className="text-lg font-bold text-white">{s.papel}</h3>
                   <p className="mt-1 text-sm text-white/60">{s.uso}</p>
                   <ul className="mt-4 flex flex-wrap gap-2">
@@ -515,13 +735,52 @@ function MapaVIP() {
                     Economia estimada: <strong>{s.economia}</strong>
                   </div>
                   <a
-                    href={s.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`#stack-${s.slug}`}
                     className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#f5d572] hover:underline"
                   >
                     Ver ferramentas desse stack →
                   </a>
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          {/* SEÇÃO 8.1 — Stacks detalhados */}
+          <Section id="stacks-detalhe" eyebrow="Stacks detalhados" titulo="Ferramentas de cada stack">
+            <p className="mb-8 max-w-3xl text-sm text-white/70">
+              Cada stack abre a lista das ferramentas recomendadas. Somente o botão final de cada
+              ferramenta abre o Plati.Market.
+            </p>
+            <div className="space-y-10">
+              {STACKS.map((s) => (
+                <div key={s.slug} id={`stack-${s.slug}`} className="scroll-mt-24">
+                  <div className="mb-4 flex items-end justify-between gap-4 border-b border-white/10 pb-3">
+                    <div>
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
+                        Stack
+                      </div>
+                      <h3 className="mt-1 text-2xl font-black text-white">{s.papel}</h3>
+                      <p className="mt-1 text-sm text-white/60">{s.uso}</p>
+                    </div>
+                    <a href="#stacks" className="text-xs text-white/50 hover:text-[#f5d572]">
+                      ← voltar aos stacks
+                    </a>
+                  </div>
+                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                    {s.detalhe.map((d) => (
+                      <div key={d.nome} className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-4">
+                        <div className="text-sm font-semibold text-white">{d.nome}</div>
+                        <a
+                          href={d.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black"
+                        >
+                          Abrir opções no Plati →
+                        </a>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
