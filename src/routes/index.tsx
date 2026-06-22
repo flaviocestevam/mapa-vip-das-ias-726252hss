@@ -73,6 +73,7 @@ const CATEGORIAS: Categoria[] = [
       { slug: "freepik", nome: "Freepik", para: "Banco de imagens e IA generativa", tipo: "Premium anual", oficial: "R$ 600/ano", encontrado: "R$ 59/ano", economia: "~90%", atencao: "Baixa", link: "https://plati.market/search/freepik" },
       { slug: "adobe-firefly", nome: "Adobe Firefly", para: "Geração e edição integradas à Adobe", tipo: "Acesso compartilhado", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/adobe%20firefly" },
       { slug: "canva-img", nome: "Canva Pro", para: "Criação visual com biblioteca completa", tipo: "Plano família", oficial: "R$ 44/mês", encontrado: "R$ 9/mês", economia: "~80%", atencao: "Baixa", link: "https://plati.market/search/canva%20pro" },
+      { slug: "ideogram", nome: "Ideogram", para: "Imagens com tipografia e textos legíveis", tipo: "Plano com créditos", oficial: "R$ 100/mês", encontrado: "R$ 22/mês", economia: "~78%", atencao: "Média", link: "https://plati.market/search/ideogram" },
     ],
   },
   {
