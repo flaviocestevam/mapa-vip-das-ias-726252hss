@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Mapa VIP das IAs" },
+      { name: "description", content: "Mapa VIP das IAs" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Mapa VIP das IAs" },
+      { property: "og:description", content: "Mapa VIP das IAs" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Mapa VIP das IAs" },
+      { name: "twitter:description", content: "Mapa VIP das IAs" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5f9d2451-66ca-4291-90cc-e13f41865915/id-preview-6660a28e--21e784ca-ba8c-4d31-a63b-eb610d5c8966.lovable.app-1782132006167.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5f9d2451-66ca-4291-90cc-e13f41865915/id-preview-6660a28e--21e784ca-ba8c-4d31-a63b-eb610d5c8966.lovable.app-1782132006167.png" },
     ],
     links: [
       {
