@@ -129,6 +129,7 @@ const CATEGORIAS: Categoria[] = [
       { slug: "zapier", nome: "Zapier", para: "Conectores e automações entre apps", tipo: "Plano com créditos", oficial: "R$ 120/mês", encontrado: "R$ 35/mês", economia: "~71%", atencao: "Média", link: "https://plati.market/search/zapier" },
       { slug: "gamma", nome: "Gamma", para: "Apresentações em minutos com IA", tipo: "Plano com créditos", oficial: "R$ 70/mês", encontrado: "R$ 19/mês", economia: "~73%", atencao: "Baixa", link: "https://plati.market/search/gamma" },
       { slug: "apis", nome: "APIs / créditos", para: "Créditos para APIs de IA (OpenAI, etc.)", tipo: "Créditos", oficial: "R$ 100/mês", encontrado: "R$ 29/mês", economia: "~71%", atencao: "Média", link: "https://plati.market/search/api%20ai" },
+      { slug: "n8n", nome: "n8n", para: "Automação open-source com nós e fluxos", tipo: "Plano cloud", oficial: "R$ 110/mês", encontrado: "R$ 29/mês", economia: "~74%", atencao: "Média", link: "https://plati.market/search/n8n" },
     ],
   },
 ];
