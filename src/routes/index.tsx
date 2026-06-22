@@ -115,6 +115,7 @@ const CATEGORIAS: Categoria[] = [
       { slug: "motion-array", nome: "Motion Array", para: "Templates de vídeo e After Effects", tipo: "Assinatura anual", oficial: "R$ 720/ano", encontrado: "R$ 79/ano", economia: "~89%", atencao: "Média", link: "https://plati.market/search/motion%20array" },
       { slug: "creative-fabrica", nome: "Creative Fabrica", para: "Fontes, gráficos e crafts", tipo: "Assinatura anual", oficial: "R$ 600/ano", encontrado: "R$ 69/ano", economia: "~88%", atencao: "Baixa", link: "https://plati.market/search/creative%20fabrica" },
       { slug: "placeit", nome: "Placeit", para: "Mockups e templates de marca", tipo: "Assinatura anual", oficial: "R$ 360/ano", encontrado: "R$ 49/ano", economia: "~86%", atencao: "Baixa", link: "https://plati.market/search/placeit" },
+      { slug: "figma", nome: "Figma", para: "Design de interfaces colaborativo", tipo: "Plano profissional", oficial: "R$ 90/mês", encontrado: "R$ 19/mês", economia: "~78%", atencao: "Média", link: "https://plati.market/search/figma" },
     ],
   },
   {
