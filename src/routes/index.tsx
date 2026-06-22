@@ -591,17 +591,18 @@ function MapaVIP() {
             <div className="space-y-12">
               {CATEGORIAS.map((c) => (
                 <div key={c.slug} id={`categoria-${c.slug}`} className="scroll-mt-24">
-                  <div className="mb-5 flex items-end justify-between gap-4 border-b border-white/10 pb-3">
-                    <div>
+                  <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-white/10 pb-3">
+                    <div className="min-w-0">
                       <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
                         Categoria
                       </div>
-                      <h3 className="mt-1 text-2xl font-black text-white">{c.nome}</h3>
+                      <h3 className="mt-1 font-black text-white text-[clamp(1.25rem,4vw,1.5rem)]">{c.nome}</h3>
                     </div>
-                    <a href="#ferramentas" className="text-xs text-white/50 hover:text-[#f5d572]">
+                    <a href="#ferramentas" className="shrink-0 text-xs text-white/50 hover:text-[#f5d572]">
                       ← voltar ao mapa
                     </a>
                   </div>
+
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     {c.tools.map((t) => (
                       <div
