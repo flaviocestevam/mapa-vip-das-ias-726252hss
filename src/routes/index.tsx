@@ -421,8 +421,13 @@ function MapaVIP() {
                           </span>
                         </td>
                         <td className="px-4 py-3">
-                          <a href={o.link} className="rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-xs font-semibold text-black">
-                            Abrir oferta
+                          <a
+                            href={o.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-xs font-semibold text-black"
+                          >
+                            Ver opções
                           </a>
                         </td>
                       </tr>
@@ -431,8 +436,8 @@ function MapaVIP() {
                 </table>
               </div>
             </div>
-            <p className="mt-3 text-xs text-white/40">
-              Os links acima são placeholders editáveis (ex.: <code>#substituir-link-chatgpt</code>) — substitua pelos links reais das ofertas.
+            <p className="mt-3 text-xs text-white/50">
+              Os links levam para ofertas ou buscas no Plati.Market. Antes de comprar, confira preço final, descrição, reputação do vendedor e comentários recentes.
             </p>
           </Section>
 
