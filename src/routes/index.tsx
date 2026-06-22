@@ -116,13 +116,14 @@ const GLOSSARIO = [
 ];
 
 const STACKS = [
-  { papel: "Criador de conteúdo", uso: "Roteiro, design e edição rápida", tools: ["ChatGPT", "Canva", "CapCut", "ElevenLabs"], economia: "R$ 250/mês", link: "https://plati.market/search/chatgpt" },
-  { papel: "Social media", uso: "Posts, criativos e legendas", tools: ["ChatGPT", "Canva", "Freepik", "CapCut"], economia: "R$ 220/mês", link: "https://plati.market/search/canva%20pro" },
-  { papel: "Designer", uso: "Imagens, mockups e identidade", tools: ["Midjourney", "Canva", "Freepik", "Adobe Firefly"], economia: "R$ 380/mês", link: "https://plati.market/search/midjourney" },
-  { papel: "Editor de vídeo", uso: "Edição, dublagem e geração de cenas", tools: ["CapCut", "Runway", "Kling", "ElevenLabs"], economia: "R$ 450/mês", link: "https://plati.market/search/capcut%20pro" },
-  { papel: "Infoprodutor", uso: "Aulas, materiais e apresentações", tools: ["ChatGPT", "Canva", "Gamma", "ElevenLabs"], economia: "R$ 300/mês", link: "https://plati.market/search/chatgpt" },
-  { papel: "Freelancer / agência", uso: "Produtividade e automação de entregas", tools: ["ChatGPT", "Notion", "Canva", "Automação"], economia: "R$ 500/mês", link: "https://plati.market/search/notion%20ai" },
+  { papel: "Criador de conteúdo", uso: "Roteiro, design e edição rápida", tools: ["ChatGPT", "Canva", "CapCut", "ElevenLabs"], economia: "R$ 250/mês", link: "https://plati.market/search/ai" },
+  { papel: "Social media", uso: "Posts, criativos e legendas", tools: ["ChatGPT", "Canva", "Freepik", "CapCut"], economia: "R$ 220/mês", link: "https://plati.market/search/ai" },
+  { papel: "Designer", uso: "Imagens, mockups e identidade", tools: ["Midjourney", "Canva", "Freepik", "Adobe Firefly"], economia: "R$ 380/mês", link: "https://plati.market/search/ai" },
+  { papel: "Editor de vídeo", uso: "Edição, dublagem e geração de cenas", tools: ["CapCut", "Runway", "Kling", "ElevenLabs"], economia: "R$ 450/mês", link: "https://plati.market/search/ai" },
+  { papel: "Infoprodutor", uso: "Aulas, materiais e apresentações", tools: ["ChatGPT", "Canva", "Gamma", "ElevenLabs"], economia: "R$ 300/mês", link: "https://plati.market/search/ai" },
+  { papel: "Freelancer / agência", uso: "Produtividade e automação de entregas", tools: ["ChatGPT", "Notion", "Canva", "Automação"], economia: "R$ 500/mês", link: "https://plati.market/search/ai" },
 ];
+
 
 
 const RANKINGS = [
