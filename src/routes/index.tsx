@@ -129,36 +129,37 @@ const RANKINGS = [
   {
     titulo: "Maiores economias encontradas",
     itens: [
-      { nome: "Envato Elements", obs: "Anual com economia de ~91%" },
-      { nome: "CapCut Pro", obs: "Licença anual com ~90% off" },
-      { nome: "Freepik Premium", obs: "Anual com ~90% off" },
+      { nome: "Envato Elements", obs: "Anual com economia de ~91%", link: "https://plati.market/search/envato" },
+      { nome: "CapCut Pro", obs: "Licença anual com ~90% off", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "Freepik Premium", obs: "Anual com ~90% off", link: "https://plati.market/search/freepik" },
     ],
   },
   {
     titulo: "Melhores para criadores de conteúdo",
     itens: [
-      { nome: "ChatGPT Plus", obs: "Roteiros e ideias ilimitadas" },
-      { nome: "Canva Pro", obs: "Criativos rápidos" },
-      { nome: "ElevenLabs", obs: "Narrações naturais" },
+      { nome: "ChatGPT Plus", obs: "Roteiros e ideias ilimitadas", link: "https://plati.market/search/chatgpt" },
+      { nome: "Canva Pro", obs: "Criativos rápidos", link: "https://plati.market/search/canva%20pro" },
+      { nome: "ElevenLabs", obs: "Narrações naturais", link: "https://plati.market/search/elevenlabs" },
     ],
   },
   {
     titulo: "Melhores para quem trabalha com vídeo",
     itens: [
-      { nome: "CapCut Pro", obs: "Edição pro acessível" },
-      { nome: "Runway", obs: "Geração e efeitos" },
-      { nome: "Kling", obs: "Vídeos com IA" },
+      { nome: "CapCut Pro", obs: "Edição pro acessível", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "Runway", obs: "Geração e efeitos", link: "https://plati.market/search/runway" },
+      { nome: "Kling", obs: "Vídeos com IA", link: "https://plati.market/search/kling" },
     ],
   },
   {
     titulo: "Melhores para produtividade e negócios",
     itens: [
-      { nome: "Notion AI", obs: "Organização inteligente" },
-      { nome: "Gamma", obs: "Apresentações em minutos" },
-      { nome: "Make / Zapier", obs: "Automação de fluxos" },
+      { nome: "Notion AI", obs: "Organização inteligente", link: "https://plati.market/search/notion%20ai" },
+      { nome: "Gamma", obs: "Apresentações em minutos", link: "https://plati.market/search/gamma" },
+      { nome: "Make / Zapier", obs: "Automação de fluxos", link: "https://plati.market/search/make" },
     ],
   },
 ];
+
 
 const ATUALIZACOES = [
   "Novas ferramentas adicionadas",
