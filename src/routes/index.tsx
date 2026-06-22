@@ -379,19 +379,20 @@ function MapaVIP() {
 
         <main id="top" className="mx-auto max-w-7xl px-4 sm:px-6">
           {/* HERO */}
-          <section className="grid gap-10 py-16 lg:grid-cols-[1.2fr_1fr] lg:py-24">
-            <div>
+          <section className="grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.2fr_1fr] lg:py-24">
+            <div className="min-w-0">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-4 py-1.5 text-xs font-medium text-[#f5d572]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#f5d572]" />
                 Acesso liberado · Mapa VIP das IAs
               </span>
-              <h1 className="mt-6 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 font-black leading-[1.05] tracking-tight text-[clamp(2rem,7vw,3.75rem)]">
                 Seu{" "}
                 <span className="bg-gradient-to-r from-[#f5d572] via-[#d4af37] to-[#8a6a1a] bg-clip-text text-transparent">
                   Mapa VIP
                 </span>{" "}
                 para encontrar ferramentas de IA pagando menos
               </h1>
+
               <p className="mt-6 max-w-2xl text-base text-white/70 sm:text-lg">
                 Aqui estão os links, preços, categorias, rankings, prints e instruções para você
                 encontrar oportunidades em ferramentas de IA sem perder tempo garimpando sozinho.
