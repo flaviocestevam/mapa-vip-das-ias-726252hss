@@ -621,7 +621,7 @@ function MapaVIP() {
                 <table className="w-full min-w-[900px] text-left text-sm">
                   <thead className="bg-white/[0.03] text-[11px] uppercase tracking-wider text-white/55">
                     <tr>
-                      {["Ferramenta", "Categoria", "Tipo", "Preço oficial", "Preço encontrado", "Economia", "Atenção", "Link"].map((h) => (
+                      {["Ferramenta", "Categoria", "Tipo", "Preço oficial", "Preço encontrado", "Economia", "Link"].map((h) => (
                         <th key={h} className="px-4 py-3 font-semibold">{h}</th>
                       ))}
                     </tr>
@@ -635,11 +635,6 @@ function MapaVIP() {
                         <td className="px-4 py-3 text-white/50 line-through">{o.oficial}</td>
                         <td className="px-4 py-3 font-semibold text-[#86efac]">{o.encontrado}</td>
                         <td className="px-4 py-3 font-semibold text-[#f5d572]">{o.economia}</td>
-                        <td className="px-4 py-3">
-                          <span className={`rounded-full px-2 py-0.5 text-xs ${o.atencao === "Baixa" ? "bg-emerald-500/10 text-emerald-300" : "bg-amber-500/10 text-amber-300"}`}>
-                            {o.atencao}
-                          </span>
-                        </td>
                         <td className="px-4 py-3">
                           <a
                             href={o.link}
