@@ -289,33 +289,41 @@ const RANKINGS = [
   {
     titulo: "Maiores economias encontradas",
     itens: [
-      { nome: "Envato Elements", obs: "Anual com economia de ~91%", anchor: "#ferramenta-envato", link: "https://plati.market/search/envato" },
-      { nome: "CapCut Pro", obs: "Licença anual com ~90% off", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "Freepik Premium", obs: "Anual com ~90% off", anchor: "#ferramenta-freepik", link: "https://plati.market/search/freepik" },
+      { nome: "Envato Elements", obs: "Assinatura anual completa", economia: "91%", anchor: "#ferramenta-envato", link: "https://plati.market/search/envato" },
+      { nome: "CapCut Pro", obs: "Licença anual com edição pro", economia: "90%", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "Freepik Premium", obs: "Banco de mídia anual", economia: "90%", anchor: "#ferramenta-freepik", link: "https://plati.market/search/freepik" },
+      { nome: "Motion Array", obs: "Templates de vídeo anuais", economia: "89%", anchor: "#ferramenta-motion-array", link: "https://plati.market/search/motion%20array" },
+      { nome: "Creative Fabrica", obs: "Fontes e gráficos anuais", economia: "88%", anchor: "#ferramenta-creative-fabrica", link: "https://plati.market/search/creative%20fabrica" },
     ],
   },
   {
     titulo: "Melhores para criadores de conteúdo",
     itens: [
-      { nome: "ChatGPT Plus", obs: "Roteiros e ideias ilimitadas", anchor: "#ferramenta-chatgpt", link: "https://plati.market/search/chatgpt" },
-      { nome: "Canva Pro", obs: "Criativos rápidos", anchor: "#ferramenta-canva", link: "https://plati.market/search/canva%20pro" },
-      { nome: "ElevenLabs", obs: "Narrações naturais", anchor: "#ferramenta-elevenlabs", link: "https://plati.market/search/elevenlabs" },
+      { nome: "ChatGPT Plus", obs: "Roteiros e ideias ilimitadas", economia: "84%", anchor: "#ferramenta-chatgpt", link: "https://plati.market/search/chatgpt" },
+      { nome: "Canva Pro", obs: "Criativos rápidos", economia: "80%", anchor: "#ferramenta-canva", link: "https://plati.market/search/canva%20pro" },
+      { nome: "ElevenLabs", obs: "Narrações naturais", economia: "77%", anchor: "#ferramenta-elevenlabs", link: "https://plati.market/search/elevenlabs" },
+      { nome: "Midjourney", obs: "Imagens artísticas de alta qualidade", economia: "80%", anchor: "#ferramenta-midjourney", link: "https://plati.market/search/midjourney" },
+      { nome: "Gamma", obs: "Apresentações em minutos", economia: "73%", anchor: "#ferramenta-gamma", link: "https://plati.market/search/gamma" },
     ],
   },
   {
     titulo: "Melhores para quem trabalha com vídeo",
     itens: [
-      { nome: "CapCut Pro", obs: "Edição pro acessível", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "Runway", obs: "Geração e efeitos", anchor: "#ferramenta-runway", link: "https://plati.market/search/runway" },
-      { nome: "Kling", obs: "Vídeos com IA", anchor: "#ferramenta-kling", link: "https://plati.market/search/kling" },
+      { nome: "CapCut Pro", obs: "Edição pro acessível", economia: "90%", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "Runway", obs: "Geração e efeitos com IA", economia: "78%", anchor: "#ferramenta-runway", link: "https://plati.market/search/runway" },
+      { nome: "Kling", obs: "Vídeos cinematográficos com IA", economia: "77%", anchor: "#ferramenta-kling", link: "https://plati.market/search/kling" },
+      { nome: "Pika", obs: "Vídeos curtos e animações", economia: "77%", anchor: "#ferramenta-pika", link: "https://plati.market/search/pika" },
+      { nome: "ElevenLabs", obs: "Dublagem e narração realista", economia: "77%", anchor: "#ferramenta-elevenlabs", link: "https://plati.market/search/elevenlabs" },
     ],
   },
   {
     titulo: "Melhores para produtividade e negócios",
     itens: [
-      { nome: "Notion AI", obs: "Organização inteligente", anchor: "#ferramenta-notion", link: "https://plati.market/search/notion%20ai" },
-      { nome: "Gamma", obs: "Apresentações em minutos", anchor: "#ferramenta-gamma", link: "https://plati.market/search/gamma" },
-      { nome: "Make / Zapier", obs: "Automação de fluxos", anchor: "#ferramenta-make", link: "https://plati.market/search/make" },
+      { nome: "Notion AI", obs: "Organização inteligente", economia: "76%", anchor: "#ferramenta-notion", link: "https://plati.market/search/notion%20ai" },
+      { nome: "Gamma", obs: "Apresentações em minutos", economia: "73%", anchor: "#ferramenta-gamma", link: "https://plati.market/search/gamma" },
+      { nome: "Make / Zapier", obs: "Automação de fluxos", economia: "72%", anchor: "#ferramenta-make", link: "https://plati.market/search/make" },
+      { nome: "n8n", obs: "Automação open-source", economia: "74%", anchor: "#ferramenta-n8n", link: "https://plati.market/search/n8n" },
+      { nome: "Microsoft Copilot", obs: "Office, Word e Excel com IA", economia: "68%", anchor: "#ferramenta-copilot", link: "https://plati.market/search/copilot" },
     ],
   },
 ];
