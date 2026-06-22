@@ -1,5 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
+import printBusca from "@/assets/plati-busca-ferramentas.png.asset.json";
+import printLista from "@/assets/plati-lista-resultados.png.asset.json";
+import printProduto from "@/assets/plati-pagina-produto.png.asset.json";
+import printVendedor from "@/assets/plati-reputacao-vendedor.png.asset.json";
+import printReviews from "@/assets/plati-comentarios-reviews.png.asset.json";
+import printCompra from "@/assets/plati-botao-compra.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -137,12 +143,12 @@ const OFERTAS = [
 ];
 
 const PRINTS = [
-  { titulo: "Busca por ferramentas", legenda: "Use a busca para encontrar ofertas relacionadas à ferramenta que você quer." },
-  { titulo: "Lista de resultados", legenda: "Compare preço, título, vendedor e tipo de entrega antes de abrir uma oferta." },
-  { titulo: "Página do produto", legenda: "Leia a descrição completa para entender exatamente o que está sendo vendido." },
-  { titulo: "Reputação do vendedor", legenda: "Priorize vendedores com histórico, avaliações e vendas recentes." },
-  { titulo: "Comentários e reviews", legenda: "Comentários recentes ajudam a identificar se a oferta continua funcionando." },
-  { titulo: "Botão de compra", legenda: "Confira tudo antes de finalizar." },
+  { titulo: "Busca por ferramentas", legenda: "Use a busca para encontrar ofertas relacionadas à ferramenta que você quer.", img: printBusca.url },
+  { titulo: "Lista de resultados", legenda: "Compare preço, título, vendedor e tipo de entrega antes de abrir uma oferta.", img: printLista.url },
+  { titulo: "Página do produto", legenda: "Leia a descrição completa para entender exatamente o que está sendo vendido.", img: printProduto.url },
+  { titulo: "Reputação do vendedor", legenda: "Priorize vendedores com histórico, avaliações e vendas recentes.", img: printVendedor.url },
+  { titulo: "Comentários e reviews", legenda: "Comentários recentes ajudam a identificar se a oferta continua funcionando.", img: printReviews.url },
+  { titulo: "Botão de compra", legenda: "Só avance depois de conferir preço, descrição, entrega e reputação.", img: printCompra.url },
 ];
 
 const PASSOS = [
@@ -484,17 +490,20 @@ function MapaVIP() {
                   key={p.titulo}
                   className="overflow-hidden rounded-2xl border border-white/10 bg-[#11100b]"
                 >
-                  <div className="relative grid h-44 place-items-center bg-gradient-to-br from-[#1d1a12] to-[#0c0b08] text-center">
-                    <div className="px-4">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
-                        Print {i + 1}
-                      </div>
-                      <div className="mt-2 text-base font-bold text-white/85">{p.titulo}</div>
-                    </div>
-                    <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_46%,rgba(212,175,55,0.12)_50%,transparent_54%)]" />
+                  <div className="aspect-[16/10] w-full overflow-hidden bg-[#0c0b08]">
+                    <img
+                      src={p.img}
+                      alt={`Print do Plati.Market — ${p.titulo}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover object-top"
+                    />
                   </div>
                   <div className="p-5">
-                    <p className="text-sm text-white/70">{p.legenda}</p>
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
+                      Passo {i + 1}
+                    </div>
+                    <div className="mt-1 text-base font-bold text-white">{p.titulo}</div>
+                    <p className="mt-2 text-sm text-white/70">{p.legenda}</p>
                   </div>
                 </div>
               ))}
