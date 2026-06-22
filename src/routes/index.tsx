@@ -490,17 +490,20 @@ function MapaVIP() {
                   key={p.titulo}
                   className="overflow-hidden rounded-2xl border border-white/10 bg-[#11100b]"
                 >
-                  <div className="relative grid h-44 place-items-center bg-gradient-to-br from-[#1d1a12] to-[#0c0b08] text-center">
-                    <div className="px-4">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
-                        Print {i + 1}
-                      </div>
-                      <div className="mt-2 text-base font-bold text-white/85">{p.titulo}</div>
-                    </div>
-                    <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_46%,rgba(212,175,55,0.12)_50%,transparent_54%)]" />
+                  <div className="aspect-[16/10] w-full overflow-hidden bg-[#0c0b08]">
+                    <img
+                      src={p.img}
+                      alt={`Print do Plati.Market — ${p.titulo}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover object-top"
+                    />
                   </div>
                   <div className="p-5">
-                    <p className="text-sm text-white/70">{p.legenda}</p>
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
+                      Passo {i + 1}
+                    </div>
+                    <div className="mt-1 text-base font-bold text-white">{p.titulo}</div>
+                    <p className="mt-2 text-sm text-white/70">{p.legenda}</p>
                   </div>
                 </div>
               ))}
