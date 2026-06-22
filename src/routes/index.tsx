@@ -709,11 +709,11 @@ function MapaVIP() {
                   <h3 className="text-lg font-bold text-white">{r.titulo}</h3>
                   <ol className="mt-4 space-y-3">
                     {r.itens.map((i, idx) => (
-                      <li key={i.nome} className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3">
+                      <li key={i.nome} className="flex flex-wrap items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3">
                         <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#d4af37]/15 text-sm font-black text-[#f5d572]">
                           {idx + 1}
                         </span>
-                        <a href={i.anchor} className="flex-1 min-w-0">
+                        <a href={i.anchor} className="min-w-0 flex-1">
                           <div className="text-sm font-semibold text-white hover:text-[#f5d572]">{i.nome}</div>
                           <div className="text-xs text-white/60">{i.obs}</div>
                         </a>
@@ -721,11 +721,12 @@ function MapaVIP() {
                           href={i.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="shrink-0 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-[11px] font-semibold text-black"
+                          className="inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-[11px] font-semibold text-black min-h-11"
                         >
                           Abrir no Plati →
                         </a>
                       </li>
+
                     ))}
                   </ol>
                 </div>
