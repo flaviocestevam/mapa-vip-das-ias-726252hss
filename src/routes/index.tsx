@@ -59,6 +59,7 @@ const CATEGORIAS: Categoria[] = [
       { slug: "gemini", nome: "Gemini", para: "Pesquisa, integração Google e multimodal", tipo: "Acesso compartilhado", oficial: "R$ 95/mês", encontrado: "R$ 22/mês", economia: "~76%", atencao: "Média", link: "https://plati.market/search/gemini" },
       { slug: "perplexity", nome: "Perplexity", para: "Busca com IA e fontes citadas", tipo: "Conta pro", oficial: "R$ 100/mês", encontrado: "R$ 29/mês", economia: "~71%", atencao: "Baixa", link: "https://plati.market/search/perplexity" },
       { slug: "copilot", nome: "Microsoft Copilot", para: "Office, Word, Excel e produtividade", tipo: "Licença", oficial: "R$ 110/mês", encontrado: "R$ 35/mês", economia: "~68%", atencao: "Média", link: "https://plati.market/search/copilot" },
+      { slug: "grok", nome: "Grok", para: "Respostas rápidas com tom direto e atual", tipo: "Acesso compartilhado", oficial: "R$ 160/mês", encontrado: "R$ 29/mês", economia: "~82%", atencao: "Média", link: "https://plati.market/search/grok" },
     ],
   },
   {
