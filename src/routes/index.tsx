@@ -382,10 +382,12 @@ function MapaVIP() {
                     ))}
                   </ul>
                   <a
-                    href={c.anchor}
+                    href={c.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#f5d572] hover:underline"
                   >
-                    Ver ofertas dessa categoria →
+                    Ver opções dessa categoria →
                   </a>
                 </div>
               ))}
