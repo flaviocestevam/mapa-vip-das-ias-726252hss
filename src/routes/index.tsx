@@ -515,14 +515,23 @@ function MapaVIP() {
                   key={p.titulo}
                   className="overflow-hidden rounded-2xl border border-white/10 bg-[#11100b]"
                 >
-                  <div className="aspect-[16/10] w-full overflow-hidden bg-[#0c0b08]">
+                  <a
+                    href={p.img}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative block aspect-[16/10] w-full overflow-hidden bg-[#0c0b08]"
+                    aria-label={`Abrir print em tamanho real — ${p.titulo}`}
+                  >
                     <img
                       src={p.img}
                       alt={`Print do Plati.Market — ${p.titulo}`}
                       loading="lazy"
-                      className="h-full w-full object-cover object-top"
+                      className="h-full w-full object-cover object-top transition group-hover:scale-[1.02]"
                     />
-                  </div>
+                    <span className="absolute bottom-2 right-2 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-semibold text-white/90 backdrop-blur">
+                      Clique para ampliar ↗
+                    </span>
+                  </a>
                   <div className="p-5">
                     <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
                       Passo {i + 1}
