@@ -450,14 +450,22 @@ function MapaVIP() {
                   <h3 className="text-lg font-bold text-white">{r.titulo}</h3>
                   <ol className="mt-4 space-y-3">
                     {r.itens.map((i, idx) => (
-                      <li key={i.nome} className="flex items-start gap-4 rounded-xl border border-white/5 bg-white/[0.02] p-3">
-                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#d4af37]/15 text-sm font-black text-[#f5d572]">
-                          {idx + 1}
-                        </span>
-                        <div>
-                          <div className="text-sm font-semibold text-white">{i.nome}</div>
-                          <div className="text-xs text-white/60">{i.obs}</div>
-                        </div>
+                      <li key={i.nome}>
+                        <a
+                          href={i.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-start gap-4 rounded-xl border border-white/5 bg-white/[0.02] p-3 transition hover:border-[#d4af37]/40 hover:bg-white/[0.04]"
+                        >
+                          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#d4af37]/15 text-sm font-black text-[#f5d572]">
+                            {idx + 1}
+                          </span>
+                          <div>
+                            <div className="text-sm font-semibold text-white">{i.nome}</div>
+                            <div className="text-xs text-white/60">{i.obs}</div>
+                          </div>
+                          <span className="ml-auto text-xs font-semibold text-[#f5d572]">Ver opções →</span>
+                        </a>
                       </li>
                     ))}
                   </ol>
