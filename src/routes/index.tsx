@@ -143,12 +143,12 @@ const OFERTAS = [
 ];
 
 const PRINTS = [
-  { titulo: "Busca por ferramentas", legenda: "Use a busca para encontrar ofertas relacionadas à ferramenta que você quer." },
-  { titulo: "Lista de resultados", legenda: "Compare preço, título, vendedor e tipo de entrega antes de abrir uma oferta." },
-  { titulo: "Página do produto", legenda: "Leia a descrição completa para entender exatamente o que está sendo vendido." },
-  { titulo: "Reputação do vendedor", legenda: "Priorize vendedores com histórico, avaliações e vendas recentes." },
-  { titulo: "Comentários e reviews", legenda: "Comentários recentes ajudam a identificar se a oferta continua funcionando." },
-  { titulo: "Botão de compra", legenda: "Confira tudo antes de finalizar." },
+  { titulo: "Busca por ferramentas", legenda: "Use a busca para encontrar ofertas relacionadas à ferramenta que você quer.", img: printBusca.url },
+  { titulo: "Lista de resultados", legenda: "Compare preço, título, vendedor e tipo de entrega antes de abrir uma oferta.", img: printLista.url },
+  { titulo: "Página do produto", legenda: "Leia a descrição completa para entender exatamente o que está sendo vendido.", img: printProduto.url },
+  { titulo: "Reputação do vendedor", legenda: "Priorize vendedores com histórico, avaliações e vendas recentes.", img: printVendedor.url },
+  { titulo: "Comentários e reviews", legenda: "Comentários recentes ajudam a identificar se a oferta continua funcionando.", img: printReviews.url },
+  { titulo: "Botão de compra", legenda: "Só avance depois de conferir preço, descrição, entrega e reputação.", img: printCompra.url },
 ];
 
 const PASSOS = [
