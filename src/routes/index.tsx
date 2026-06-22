@@ -289,33 +289,41 @@ const RANKINGS = [
   {
     titulo: "Maiores economias encontradas",
     itens: [
-      { nome: "Envato Elements", obs: "Anual com economia de ~91%", anchor: "#ferramenta-envato", link: "https://plati.market/search/envato" },
-      { nome: "CapCut Pro", obs: "Licença anual com ~90% off", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "Freepik Premium", obs: "Anual com ~90% off", anchor: "#ferramenta-freepik", link: "https://plati.market/search/freepik" },
+      { nome: "Envato Elements", obs: "Assinatura anual completa", economia: "91%", anchor: "#ferramenta-envato", link: "https://plati.market/search/envato" },
+      { nome: "CapCut Pro", obs: "Licença anual com edição pro", economia: "90%", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "Freepik Premium", obs: "Banco de mídia anual", economia: "90%", anchor: "#ferramenta-freepik", link: "https://plati.market/search/freepik" },
+      { nome: "Motion Array", obs: "Templates de vídeo anuais", economia: "89%", anchor: "#ferramenta-motion-array", link: "https://plati.market/search/motion%20array" },
+      { nome: "Creative Fabrica", obs: "Fontes e gráficos anuais", economia: "88%", anchor: "#ferramenta-creative-fabrica", link: "https://plati.market/search/creative%20fabrica" },
     ],
   },
   {
     titulo: "Melhores para criadores de conteúdo",
     itens: [
-      { nome: "ChatGPT Plus", obs: "Roteiros e ideias ilimitadas", anchor: "#ferramenta-chatgpt", link: "https://plati.market/search/chatgpt" },
-      { nome: "Canva Pro", obs: "Criativos rápidos", anchor: "#ferramenta-canva", link: "https://plati.market/search/canva%20pro" },
-      { nome: "ElevenLabs", obs: "Narrações naturais", anchor: "#ferramenta-elevenlabs", link: "https://plati.market/search/elevenlabs" },
+      { nome: "ChatGPT Plus", obs: "Roteiros e ideias ilimitadas", economia: "84%", anchor: "#ferramenta-chatgpt", link: "https://plati.market/search/chatgpt" },
+      { nome: "Canva Pro", obs: "Criativos rápidos", economia: "80%", anchor: "#ferramenta-canva", link: "https://plati.market/search/canva%20pro" },
+      { nome: "ElevenLabs", obs: "Narrações naturais", economia: "77%", anchor: "#ferramenta-elevenlabs", link: "https://plati.market/search/elevenlabs" },
+      { nome: "Midjourney", obs: "Imagens artísticas de alta qualidade", economia: "80%", anchor: "#ferramenta-midjourney", link: "https://plati.market/search/midjourney" },
+      { nome: "Gamma", obs: "Apresentações em minutos", economia: "73%", anchor: "#ferramenta-gamma", link: "https://plati.market/search/gamma" },
     ],
   },
   {
     titulo: "Melhores para quem trabalha com vídeo",
     itens: [
-      { nome: "CapCut Pro", obs: "Edição pro acessível", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "Runway", obs: "Geração e efeitos", anchor: "#ferramenta-runway", link: "https://plati.market/search/runway" },
-      { nome: "Kling", obs: "Vídeos com IA", anchor: "#ferramenta-kling", link: "https://plati.market/search/kling" },
+      { nome: "CapCut Pro", obs: "Edição pro acessível", economia: "90%", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
+      { nome: "Runway", obs: "Geração e efeitos com IA", economia: "78%", anchor: "#ferramenta-runway", link: "https://plati.market/search/runway" },
+      { nome: "Kling", obs: "Vídeos cinematográficos com IA", economia: "77%", anchor: "#ferramenta-kling", link: "https://plati.market/search/kling" },
+      { nome: "Pika", obs: "Vídeos curtos e animações", economia: "77%", anchor: "#ferramenta-pika", link: "https://plati.market/search/pika" },
+      { nome: "ElevenLabs", obs: "Dublagem e narração realista", economia: "77%", anchor: "#ferramenta-elevenlabs", link: "https://plati.market/search/elevenlabs" },
     ],
   },
   {
     titulo: "Melhores para produtividade e negócios",
     itens: [
-      { nome: "Notion AI", obs: "Organização inteligente", anchor: "#ferramenta-notion", link: "https://plati.market/search/notion%20ai" },
-      { nome: "Gamma", obs: "Apresentações em minutos", anchor: "#ferramenta-gamma", link: "https://plati.market/search/gamma" },
-      { nome: "Make / Zapier", obs: "Automação de fluxos", anchor: "#ferramenta-make", link: "https://plati.market/search/make" },
+      { nome: "Notion AI", obs: "Organização inteligente", economia: "76%", anchor: "#ferramenta-notion", link: "https://plati.market/search/notion%20ai" },
+      { nome: "Gamma", obs: "Apresentações em minutos", economia: "73%", anchor: "#ferramenta-gamma", link: "https://plati.market/search/gamma" },
+      { nome: "Make / Zapier", obs: "Automação de fluxos", economia: "72%", anchor: "#ferramenta-make", link: "https://plati.market/search/make" },
+      { nome: "n8n", obs: "Automação open-source", economia: "74%", anchor: "#ferramenta-n8n", link: "https://plati.market/search/n8n" },
+      { nome: "Microsoft Copilot", obs: "Office, Word e Excel com IA", economia: "68%", anchor: "#ferramenta-copilot", link: "https://plati.market/search/copilot" },
     ],
   },
 ];
@@ -721,7 +729,7 @@ function MapaVIP() {
                   <h3 className="text-lg font-bold text-white">{r.titulo}</h3>
                   <ol className="mt-4 space-y-3">
                     {r.itens.map((i, idx) => (
-                      <li key={i.nome} className="flex flex-wrap items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3">
+                      <li key={i.nome} className="flex flex-wrap items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3 sm:flex-nowrap">
                         <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#d4af37]/15 text-sm font-black text-[#f5d572]">
                           {idx + 1}
                         </span>
@@ -729,6 +737,14 @@ function MapaVIP() {
                           <div className="text-sm font-semibold text-white hover:text-[#f5d572]">{i.nome}</div>
                           <div className="text-xs text-white/60">{i.obs}</div>
                         </a>
+                        <div className="flex shrink-0 flex-col items-end leading-none">
+                          <span className="bg-gradient-to-r from-[#f5d572] to-[#b8881e] bg-clip-text text-3xl font-black tracking-tight text-transparent sm:text-4xl">
+                            {i.economia}
+                          </span>
+                          <span className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/50">
+                            de economia
+                          </span>
+                        </div>
                         <a
                           href={i.link}
                           target="_blank"
