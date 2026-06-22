@@ -1,5 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
+import printBusca from "@/assets/plati-busca-ferramentas.png.asset.json";
+import printLista from "@/assets/plati-lista-resultados.png.asset.json";
+import printProduto from "@/assets/plati-pagina-produto.png.asset.json";
+import printVendedor from "@/assets/plati-reputacao-vendedor.png.asset.json";
+import printReviews from "@/assets/plati-comentarios-reviews.png.asset.json";
+import printCompra from "@/assets/plati-botao-compra.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
