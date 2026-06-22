@@ -895,15 +895,16 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-24 py-16 sm:py-20">
+    <section id={id} className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
       <div className="mb-8 max-w-3xl">
         <div className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#f5d572]">
           {eyebrow}
         </div>
-        <h2 className="mt-2 text-3xl font-black tracking-tight text-white sm:text-4xl">
+        <h2 className="mt-2 font-black tracking-tight text-white text-[clamp(1.75rem,5vw,2.25rem)]">
           {titulo}
         </h2>
       </div>
+
       {children}
     </section>
   );
