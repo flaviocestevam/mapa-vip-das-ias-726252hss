@@ -481,14 +481,16 @@ function MapaVIP() {
                 <div key={r.titulo} className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-6">
                   <h3 className="text-lg font-bold text-white">{r.titulo}</h3>
                   <ol className="mt-4 space-y-3">
-                    {r.itens.map((i, idx) => (
-                      <li key={i.nome} className="flex flex-wrap items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3 sm:flex-nowrap">
+                    {r.itens.map((item, idx) => {
+                      const i = getTool(item.id);
+                      return (
+                      <li key={i.id} className="flex flex-wrap items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3 sm:flex-nowrap">
                         <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#d4af37]/15 text-sm font-black text-[#f5d572]">
                           {idx + 1}
                         </span>
-                        <a href={i.anchor} className="min-w-0 flex-1">
+                        <a href={toolAnchor(i.id)} className="min-w-0 flex-1">
                           <div className="text-sm font-semibold text-white hover:text-[#f5d572]">{i.nome}</div>
-                          <div className="text-xs text-white/60">{i.obs}</div>
+                          <div className="text-xs text-white/60">{item.obs}</div>
                         </a>
                         <div className="flex shrink-0 flex-col items-end leading-none">
                           <span className="bg-gradient-to-r from-[#f5d572] to-[#b8881e] bg-clip-text text-3xl font-black tracking-tight text-transparent sm:text-4xl">
@@ -499,7 +501,7 @@ function MapaVIP() {
                           </span>
                         </div>
                         <a
-                          href={i.link}
+                          href={toolUrl(i.id)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-[11px] font-semibold text-black min-h-11"
@@ -507,8 +509,9 @@ function MapaVIP() {
                           Abrir no Plati →
                         </a>
                       </li>
+                      );
+                    })}
 
-                    ))}
                   </ol>
                 </div>
               ))}
