@@ -548,10 +548,11 @@ function MapaVIP() {
                   <p className="mt-1 text-sm text-white/60">{s.uso}</p>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {s.tools.map((t) => (
-                      <li key={t} className="rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 px-2.5 py-1 text-xs text-[#f5d572]">
-                        {t}
+                      <li key={t.id} className="rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 px-2.5 py-1 text-xs text-[#f5d572]">
+                        {getTool(t.id).nome}
                       </li>
                     ))}
+
                   </ul>
                   <div className="mt-5 rounded-xl border border-emerald-500/15 bg-emerald-500/5 p-3 text-sm text-emerald-300">
                     Economia estimada: <strong>{s.economia}</strong>
