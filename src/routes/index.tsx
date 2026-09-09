@@ -275,12 +275,13 @@ function MapaVIP() {
                 <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-emerald-300">
                   Pagamento
                 </div>
-                <h3 className="mt-1 text-base font-bold text-white">Pode pagar com Pix</h3>
+                <h3 className="mt-1 text-base font-bold text-white">Pix pode aparecer no checkout</h3>
                 <p className="mt-2 text-sm text-white/75">
-                  Todas as ofertas do Plati.Market aceitam{" "}
-                  <strong className="text-emerald-300">Pix</strong> como forma de pagamento. Basta
-                  escolher Pix no checkout — sem precisar de cartão internacional.
+                  Algumas ofertas podem disponibilizar{" "}
+                  <strong className="text-emerald-300">Pix</strong> no checkout. Confira as formas de
+                  pagamento disponíveis na oferta antes de concluir a compra.
                 </p>
+
               </div>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
