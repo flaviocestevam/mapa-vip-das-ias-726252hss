@@ -445,9 +445,11 @@ function MapaVIP() {
                     </tr>
                   </thead>
                   <tbody>
-                    {OFERTAS.map((o) => (
-                      <tr key={o.tool} className="border-t border-white/5 hover:bg-white/[0.02]">
-                        <td className="px-4 py-3 font-semibold text-white">{o.tool}</td>
+                    {OFERTAS.map((id) => {
+                      const o = getTool(id);
+                      return (
+                      <tr key={o.id} className="border-t border-white/5 hover:bg-white/[0.02]">
+                        <td className="px-4 py-3 font-semibold text-white">{o.nome}</td>
                         <td className="px-4 py-3 text-white/70">{o.cat}</td>
                         <td className="px-4 py-3 text-white/70">{o.tipo}</td>
                         <td className="px-4 py-3 text-white/50 line-through">{o.oficial}</td>
@@ -455,16 +457,18 @@ function MapaVIP() {
                         <td className="px-4 py-3 font-semibold text-[#f5d572]">{o.economia}</td>
                         <td className="px-4 py-3">
                           <a
-                            href={o.link}
+                            href={toolUrl(o.id)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-xs font-semibold text-black"
+                            className="inline-flex min-h-11 items-center rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-xs font-semibold text-black"
                           >
                             Abrir opções
                           </a>
                         </td>
                       </tr>
-                    ))}
+                      );
+                    })}
+
                   </tbody>
                 </table>
               </div>
