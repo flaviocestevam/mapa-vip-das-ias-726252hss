@@ -334,14 +334,15 @@ function MapaVIP() {
                   <h3 className="text-lg font-bold text-white">{c.nome}</h3>
                   <p className="mt-1 text-sm text-white/60">{c.desc}</p>
                   <ul className="mt-4 flex flex-wrap gap-2">
-                    {c.tools.map((t) => (
+                    {c.tools.map((id) => (
                       <li
-                        key={t.slug}
+                        key={id}
                         className="rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 px-2.5 py-1 text-xs text-[#f5d572]"
                       >
-                        {t.nome}
+                        {getTool(id).nome}
                       </li>
                     ))}
+
                   </ul>
                   <a
                     href={`#categoria-${c.slug}`}
