@@ -376,10 +376,12 @@ function MapaVIP() {
                   </div>
 
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    {c.tools.map((t) => (
+                    {c.tools.map((id) => {
+                      const t = getTool(id);
+                      return (
                       <div
-                        key={t.slug}
-                        id={`ferramenta-${t.slug}`}
+                        key={t.id}
+                        id={`ferramenta-${t.id}`}
                         className="scroll-mt-24 flex flex-col rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-5"
                       >
                         <h4 className="text-base font-bold text-white">{t.nome}</h4>
@@ -394,7 +396,7 @@ function MapaVIP() {
                             <dd className="text-right text-white/50 line-through">{t.oficial}</dd>
                           </div>
                           <div className="flex justify-between gap-3">
-                            <dt className="text-white/50">Preço encontrado</dt>
+                            <dt className="text-white/50">Preço de referência</dt>
                             <dd className="text-right font-semibold text-[#86efac]">{t.encontrado}</dd>
                           </div>
                           <div className="flex justify-between gap-3">
@@ -417,15 +419,17 @@ function MapaVIP() {
                           </div>
                         </dl>
                         <a
-                          href={t.link}
+                          href={toolUrl(t.id)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black"
+                          className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black"
                         >
                           Abrir opções no Plati →
                         </a>
                       </div>
-                    ))}
+                      );
+                    })}
+
                   </div>
                 </div>
               ))}
