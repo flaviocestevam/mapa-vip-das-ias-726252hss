@@ -445,7 +445,7 @@ function MapaVIP() {
                 <table className="w-full min-w-[900px] text-left text-sm">
                   <thead className="bg-white/[0.03] text-[11px] uppercase tracking-wider text-white/55">
                     <tr>
-                      {["Ferramenta", "Categoria", "Tipo", "Preço oficial", "Preço encontrado", "Economia", "Link"].map((h) => (
+                      {["Ferramenta", "Categoria", "Tipo", "Preço oficial", "Preço de referência", "Economia", "Link"].map((h) => (
                         <th key={h} className="px-4 py-3 font-semibold">{h}</th>
                       ))}
                     </tr>
