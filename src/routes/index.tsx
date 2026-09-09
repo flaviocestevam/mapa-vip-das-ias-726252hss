@@ -1,11 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
+import {
+  CATEGORIAS,
+  OFERTAS,
+  RANKINGS,
+  STACKS,
+  getTool,
+  toolAnchor,
+  toolUrl,
+} from "@/data/ferramentas";
 import printBusca from "@/assets/plati-busca-ferramentas.png.asset.json";
 import printLista from "@/assets/plati-lista-resultados.png.asset.json";
 import printProduto from "@/assets/plati-pagina-produto.png.asset.json";
 import printVendedor from "@/assets/plati-reputacao-vendedor.png.asset.json";
 import printReviews from "@/assets/plati-comentarios-reviews.png.asset.json";
 import printCompra from "@/assets/plati-botao-compra.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,125 +37,6 @@ export const Route = createFileRoute("/")({
   component: MapaVIP,
 });
 
-type Ferramenta = {
-  slug: string;
-  nome: string;
-  para: string;
-  tipo: string;
-  oficial: string;
-  encontrado: string;
-  economia: string;
-  atencao: "Baixa" | "Média";
-  link: string;
-};
-
-type Categoria = {
-  slug: string;
-  nome: string;
-  desc: string;
-  cat: string;
-  tools: Ferramenta[];
-};
-
-const CATEGORIAS: Categoria[] = [
-  {
-    slug: "texto",
-    nome: "Texto, pesquisa e produtividade",
-    desc: "Assistentes de escrita, pesquisa e raciocínio para o dia a dia.",
-    cat: "Texto",
-    tools: [
-      { slug: "chatgpt", nome: "ChatGPT Plus", para: "Roteiros, ideias e respostas rápidas", tipo: "Conta compartilhada", oficial: "R$ 120/mês", encontrado: "R$ 19/mês", economia: "~84%", atencao: "Baixa", link: "https://plati.market/search/chatgpt" },
-      { slug: "claude", nome: "Claude", para: "Texto longo, análise e raciocínio cuidadoso", tipo: "Acesso compartilhado", oficial: "R$ 100/mês", encontrado: "R$ 25/mês", economia: "~75%", atencao: "Média", link: "https://plati.market/search/claude" },
-      { slug: "gemini", nome: "Gemini", para: "Pesquisa, integração Google e multimodal", tipo: "Acesso compartilhado", oficial: "R$ 95/mês", encontrado: "R$ 22/mês", economia: "~76%", atencao: "Média", link: "https://plati.market/search/gemini" },
-      { slug: "perplexity", nome: "Perplexity", para: "Busca com IA e fontes citadas", tipo: "Conta pro", oficial: "R$ 100/mês", encontrado: "R$ 29/mês", economia: "~71%", atencao: "Baixa", link: "https://plati.market/search/perplexity" },
-      { slug: "copilot", nome: "Microsoft Copilot", para: "Office, Word, Excel e produtividade", tipo: "Licença", oficial: "R$ 110/mês", encontrado: "R$ 35/mês", economia: "~68%", atencao: "Média", link: "https://plati.market/search/copilot" },
-      { slug: "grok", nome: "Grok", para: "Respostas rápidas com tom direto e atual", tipo: "Acesso compartilhado", oficial: "R$ 160/mês", encontrado: "R$ 29/mês", economia: "~82%", atencao: "Média", link: "https://plati.market/search/grok" },
-    ],
-  },
-  {
-    slug: "imagem",
-    nome: "Imagem e criação visual",
-    desc: "Geração e edição de imagens para social, design e branding.",
-    cat: "Imagem",
-    tools: [
-      { slug: "midjourney", nome: "Midjourney", para: "Imagens artísticas de alta qualidade", tipo: "Acesso compartilhado", oficial: "R$ 150/mês", encontrado: "R$ 29/mês", economia: "~80%", atencao: "Média", link: "https://plati.market/search/midjourney" },
-      { slug: "leonardo", nome: "Leonardo AI", para: "Imagens com controle e estilos", tipo: "Plano com créditos", oficial: "R$ 60/mês", encontrado: "R$ 15/mês", economia: "~75%", atencao: "Baixa", link: "https://plati.market/search/leonardo%20ai" },
-      { slug: "freepik", nome: "Freepik", para: "Banco de imagens e IA generativa", tipo: "Premium anual", oficial: "R$ 600/ano", encontrado: "R$ 59/ano", economia: "~90%", atencao: "Baixa", link: "https://plati.market/search/freepik" },
-      { slug: "adobe-firefly", nome: "Adobe Firefly", para: "Geração e edição integradas à Adobe", tipo: "Acesso compartilhado", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/adobe%20firefly" },
-      { slug: "canva-img", nome: "Canva Pro", para: "Criação visual com biblioteca completa", tipo: "Plano família", oficial: "R$ 44/mês", encontrado: "R$ 9/mês", economia: "~80%", atencao: "Baixa", link: "https://plati.market/search/canva%20pro" },
-      { slug: "ideogram", nome: "Ideogram", para: "Imagens com tipografia e textos legíveis", tipo: "Plano com créditos", oficial: "R$ 100/mês", encontrado: "R$ 22/mês", economia: "~78%", atencao: "Média", link: "https://plati.market/search/ideogram" },
-    ],
-  },
-  {
-    slug: "video",
-    nome: "Vídeo e edição",
-    desc: "Ferramentas para roteiro, edição e geração de vídeos com IA.",
-    cat: "Vídeo",
-    tools: [
-      { slug: "capcut-pro", nome: "CapCut Pro", para: "Edição pro com efeitos e IA", tipo: "Licença anual", oficial: "R$ 480/ano", encontrado: "R$ 49/ano", economia: "~90%", atencao: "Baixa", link: "https://plati.market/search/capcut%20pro" },
-      { slug: "runway", nome: "Runway", para: "Geração de vídeo e efeitos com IA", tipo: "Conta com créditos", oficial: "R$ 180/mês", encontrado: "R$ 39/mês", economia: "~78%", atencao: "Média", link: "https://plati.market/search/runway" },
-      { slug: "kling", nome: "Kling", para: "Vídeos cinematográficos com IA", tipo: "Plano com créditos", oficial: "R$ 130/mês", encontrado: "R$ 29/mês", economia: "~77%", atencao: "Média", link: "https://plati.market/search/kling" },
-      { slug: "pika", nome: "Pika", para: "Vídeos curtos e animações com IA", tipo: "Plano com créditos", oficial: "R$ 110/mês", encontrado: "R$ 25/mês", economia: "~77%", atencao: "Média", link: "https://plati.market/search/pika" },
-      { slug: "higgsfield", nome: "Higgsfield", para: "Movimento de câmera e cenas geradas", tipo: "Plano com créditos", oficial: "R$ 120/mês", encontrado: "R$ 29/mês", economia: "~75%", atencao: "Média", link: "https://plati.market/search/higgsfield" },
-      { slug: "veo", nome: "Veo", para: "Geração de vídeos do Google", tipo: "Acesso compartilhado", oficial: "R$ 180/mês", encontrado: "R$ 39/mês", economia: "~78%", atencao: "Média", link: "https://plati.market/search/veo" },
-    ],
-  },
-  {
-    slug: "audio",
-    nome: "Voz, áudio e narração",
-    desc: "Clonagem de voz, narração natural e geração musical.",
-    cat: "Voz",
-    tools: [
-      { slug: "elevenlabs", nome: "ElevenLabs", para: "Vozes naturais e clonagem", tipo: "Créditos", oficial: "R$ 110/mês", encontrado: "R$ 25/mês", economia: "~77%", atencao: "Média", link: "https://plati.market/search/elevenlabs" },
-      { slug: "murf", nome: "Murf", para: "Narração profissional para vídeos", tipo: "Plano com créditos", oficial: "R$ 95/mês", encontrado: "R$ 22/mês", economia: "~76%", atencao: "Baixa", link: "https://plati.market/search/murf" },
-      { slug: "speechify", nome: "Speechify", para: "Leitura de textos em voz natural", tipo: "Licença", oficial: "R$ 80/mês", encontrado: "R$ 19/mês", economia: "~76%", atencao: "Baixa", link: "https://plati.market/search/speechify" },
-      { slug: "suno", nome: "Suno", para: "Geração de músicas com IA", tipo: "Plano com créditos", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/suno" },
-      { slug: "udio", nome: "Udio", para: "Geração de músicas e trilhas", tipo: "Plano com créditos", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/udio" },
-      { slug: "descript", nome: "Descript", para: "Edição de áudio e podcast com IA", tipo: "Licença", oficial: "R$ 130/mês", encontrado: "R$ 29/mês", economia: "~77%", atencao: "Baixa", link: "https://plati.market/search/descript" },
-    ],
-  },
-  {
-    slug: "design",
-    nome: "Design, templates e criativos",
-    desc: "Bibliotecas de templates, mockups e elementos prontos.",
-    cat: "Design",
-    tools: [
-      { slug: "canva", nome: "Canva Pro", para: "Criação visual com biblioteca completa", tipo: "Plano família", oficial: "R$ 44/mês", encontrado: "R$ 9/mês", economia: "~80%", atencao: "Baixa", link: "https://plati.market/search/canva%20pro" },
-      { slug: "envato", nome: "Envato Elements", para: "Biblioteca infinita de assets e templates", tipo: "Assinatura anual", oficial: "R$ 990/ano", encontrado: "R$ 89/ano", economia: "~91%", atencao: "Média", link: "https://plati.market/search/envato" },
-      { slug: "motion-array", nome: "Motion Array", para: "Templates de vídeo e After Effects", tipo: "Assinatura anual", oficial: "R$ 720/ano", encontrado: "R$ 79/ano", economia: "~89%", atencao: "Média", link: "https://plati.market/search/motion%20array" },
-      { slug: "creative-fabrica", nome: "Creative Fabrica", para: "Fontes, gráficos e crafts", tipo: "Assinatura anual", oficial: "R$ 600/ano", encontrado: "R$ 69/ano", economia: "~88%", atencao: "Baixa", link: "https://plati.market/search/creative%20fabrica" },
-      { slug: "placeit", nome: "Placeit", para: "Mockups e templates de marca", tipo: "Assinatura anual", oficial: "R$ 360/ano", encontrado: "R$ 49/ano", economia: "~86%", atencao: "Baixa", link: "https://plati.market/search/placeit" },
-      { slug: "figma", nome: "Figma", para: "Design de interfaces colaborativo", tipo: "Plano profissional", oficial: "R$ 90/mês", encontrado: "R$ 19/mês", economia: "~78%", atencao: "Média", link: "https://plati.market/search/figma" },
-    ],
-  },
-  {
-    slug: "automacao",
-    nome: "Automação e negócios",
-    desc: "Automação de fluxos, APIs e produtividade para times.",
-    cat: "Produtividade",
-    tools: [
-      { slug: "notion", nome: "Notion AI", para: "Organização e IA dentro do Notion", tipo: "Add-on", oficial: "R$ 50/mês", encontrado: "R$ 12/mês", economia: "~76%", atencao: "Baixa", link: "https://plati.market/search/notion%20ai" },
-      { slug: "make", nome: "Make", para: "Automação visual de fluxos", tipo: "Plano com créditos", oficial: "R$ 90/mês", encontrado: "R$ 25/mês", economia: "~72%", atencao: "Média", link: "https://plati.market/search/make" },
-      { slug: "zapier", nome: "Zapier", para: "Conectores e automações entre apps", tipo: "Plano com créditos", oficial: "R$ 120/mês", encontrado: "R$ 35/mês", economia: "~71%", atencao: "Média", link: "https://plati.market/search/zapier" },
-      { slug: "gamma", nome: "Gamma", para: "Apresentações em minutos com IA", tipo: "Plano com créditos", oficial: "R$ 70/mês", encontrado: "R$ 19/mês", economia: "~73%", atencao: "Baixa", link: "https://plati.market/search/gamma" },
-      { slug: "apis", nome: "APIs / créditos", para: "Créditos para APIs de IA (OpenAI, etc.)", tipo: "Créditos", oficial: "R$ 100/mês", encontrado: "R$ 29/mês", economia: "~71%", atencao: "Média", link: "https://plati.market/search/api%20ai" },
-      { slug: "n8n", nome: "n8n", para: "Automação open-source com nós e fluxos", tipo: "Plano cloud", oficial: "R$ 110/mês", encontrado: "R$ 29/mês", economia: "~74%", atencao: "Média", link: "https://plati.market/search/n8n" },
-    ],
-  },
-];
-
-const OFERTAS = [
-  { tool: "ChatGPT Plus", cat: "Texto", tipo: "Conta compartilhada", oficial: "R$ 120/mês", encontrado: "R$ 19/mês", economia: "~84%", atencao: "Baixa", link: "https://plati.market/search/chatgpt" },
-  { tool: "Canva Pro", cat: "Design", tipo: "Plano família", oficial: "R$ 44/mês", encontrado: "R$ 9/mês", economia: "~80%", atencao: "Baixa", link: "https://plati.market/search/canva%20pro" },
-  { tool: "Midjourney", cat: "Imagem", tipo: "Acesso compartilhado", oficial: "R$ 150/mês", encontrado: "R$ 29/mês", economia: "~80%", atencao: "Média", link: "https://plati.market/search/midjourney" },
-  { tool: "CapCut Pro", cat: "Vídeo", tipo: "Licença anual", oficial: "R$ 480/ano", encontrado: "R$ 49/ano", economia: "~90%", atencao: "Baixa", link: "https://plati.market/search/capcut%20pro" },
-  { tool: "ElevenLabs", cat: "Voz", tipo: "Créditos", oficial: "R$ 110/mês", encontrado: "R$ 25/mês", economia: "~77%", atencao: "Média", link: "https://plati.market/search/elevenlabs" },
-  { tool: "Runway", cat: "Vídeo", tipo: "Conta com créditos", oficial: "R$ 180/mês", encontrado: "R$ 39/mês", economia: "~78%", atencao: "Média", link: "https://plati.market/search/runway" },
-  { tool: "Freepik", cat: "Design", tipo: "Premium anual", oficial: "R$ 600/ano", encontrado: "R$ 59/ano", economia: "~90%", atencao: "Baixa", link: "https://plati.market/search/freepik" },
-  { tool: "Leonardo AI", cat: "Imagem", tipo: "Plano com créditos", oficial: "R$ 60/mês", encontrado: "R$ 15/mês", economia: "~75%", atencao: "Baixa", link: "https://plati.market/search/leonardo%20ai" },
-  { tool: "Notion AI", cat: "Produtividade", tipo: "Add-on", oficial: "R$ 50/mês", encontrado: "R$ 12/mês", economia: "~76%", atencao: "Baixa", link: "https://plati.market/search/notion%20ai" },
-  { tool: "Envato Elements", cat: "Design", tipo: "Assinatura anual", oficial: "R$ 990/ano", encontrado: "R$ 89/ano", economia: "~91%", atencao: "Média", link: "https://plati.market/search/envato" },
-];
 
 const PRINTS = [
   { titulo: "Busca por ferramentas", legenda: "Use a busca para encontrar ofertas relacionadas à ferramenta que você quer.", img: printBusca.url },
@@ -188,145 +79,7 @@ const GLOSSARIO = [
   { termo: "Garantia", desc: "Prazo em que o vendedor cobre problemas com o acesso." },
 ];
 
-type StackTool = {
-  nome: string;
-  funcao: string;
-  papelNoStack: string;
-  economia: string;
-  link: string;
-};
-type Stack = {
-  slug: string;
-  papel: string;
-  uso: string;
-  tools: string[];
-  economia: string;
-  detalhe: StackTool[];
-};
 
-const STACKS: Stack[] = [
-  {
-    slug: "criador",
-    papel: "Criador de conteúdo",
-    uso: "Roteiro, design e edição rápida",
-    tools: ["ChatGPT", "Canva", "CapCut", "ElevenLabs"],
-    economia: "R$ 250/mês",
-    detalhe: [
-      { nome: "ChatGPT Plus", funcao: "IA de texto", papelNoStack: "Gera roteiros, títulos e ideias de conteúdo", economia: "~85% off", link: "https://plati.market/search/chatgpt" },
-      { nome: "Canva Pro", funcao: "Design gráfico", papelNoStack: "Cria thumbnails, capas e posts prontos", economia: "~80% off", link: "https://plati.market/search/canva%20pro" },
-      { nome: "CapCut Pro", funcao: "Edição de vídeo", papelNoStack: "Edita Reels, Shorts e cortes com efeitos pro", economia: "~90% off", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "ElevenLabs", funcao: "Voz por IA", papelNoStack: "Faz narração realista para vídeos sem gravar", economia: "~75% off", link: "https://plati.market/search/elevenlabs" },
-    ],
-  },
-  {
-    slug: "social-media",
-    papel: "Social media",
-    uso: "Posts, criativos e legendas",
-    tools: ["ChatGPT", "Canva", "Freepik", "CapCut"],
-    economia: "R$ 220/mês",
-    detalhe: [
-      { nome: "ChatGPT Plus", funcao: "IA de texto", papelNoStack: "Escreve legendas, copys e calendário de posts", economia: "~85% off", link: "https://plati.market/search/chatgpt" },
-      { nome: "Canva Pro", funcao: "Design gráfico", papelNoStack: "Monta feeds, stories e carrosséis em minutos", economia: "~80% off", link: "https://plati.market/search/canva%20pro" },
-      { nome: "Freepik", funcao: "Banco de mídia", papelNoStack: "Fotos, vetores e mockups premium para os criativos", economia: "~90% off", link: "https://plati.market/search/freepik" },
-      { nome: "CapCut Pro", funcao: "Edição de vídeo", papelNoStack: "Corta e legenda vídeos curtos para redes", economia: "~90% off", link: "https://plati.market/search/capcut%20pro" },
-    ],
-  },
-  {
-    slug: "designer",
-    papel: "Designer",
-    uso: "Imagens, mockups e identidade",
-    tools: ["Midjourney", "Canva", "Freepik", "Adobe Firefly"],
-    economia: "R$ 380/mês",
-    detalhe: [
-      { nome: "Midjourney", funcao: "IA de imagem", papelNoStack: "Gera artes conceituais e ilustrações exclusivas", economia: "~80% off", link: "https://plati.market/search/midjourney" },
-      { nome: "Canva Pro", funcao: "Design gráfico", papelNoStack: "Diagrama apresentações, social kits e identidade", economia: "~80% off", link: "https://plati.market/search/canva%20pro" },
-      { nome: "Freepik", funcao: "Banco de mídia", papelNoStack: "Vetores, ícones e mockups para acelerar layouts", economia: "~90% off", link: "https://plati.market/search/freepik" },
-      { nome: "Adobe Firefly", funcao: "IA generativa", papelNoStack: "Preenche, expande e remove elementos com IA", economia: "~70% off", link: "https://plati.market/search/adobe%20firefly" },
-    ],
-  },
-  {
-    slug: "editor-video",
-    papel: "Editor de vídeo",
-    uso: "Edição, dublagem e geração de cenas",
-    tools: ["CapCut", "Runway", "Kling", "ElevenLabs"],
-    economia: "R$ 450/mês",
-    detalhe: [
-      { nome: "CapCut Pro", funcao: "Edição de vídeo", papelNoStack: "Edição completa com efeitos, transições e legendas", economia: "~90% off", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "Runway", funcao: "IA de vídeo", papelNoStack: "Gera, expande e edita cenas com IA generativa", economia: "~70% off", link: "https://plati.market/search/runway" },
-      { nome: "Kling", funcao: "IA de vídeo", papelNoStack: "Cria clipes a partir de texto ou imagem (texto→vídeo)", economia: "~75% off", link: "https://plati.market/search/kling" },
-      { nome: "ElevenLabs", funcao: "Voz por IA", papelNoStack: "Dublagem e narração realista em vários idiomas", economia: "~75% off", link: "https://plati.market/search/elevenlabs" },
-    ],
-  },
-  {
-    slug: "infoprodutor",
-    papel: "Infoprodutor",
-    uso: "Aulas, materiais e apresentações",
-    tools: ["ChatGPT", "Canva", "Gamma", "ElevenLabs"],
-    economia: "R$ 300/mês",
-    detalhe: [
-      { nome: "ChatGPT Plus", funcao: "IA de texto", papelNoStack: "Estrutura módulos, aulas, e-mails e copy de venda", economia: "~85% off", link: "https://plati.market/search/chatgpt" },
-      { nome: "Canva Pro", funcao: "Design gráfico", papelNoStack: "Cria apostilas, slides e capas de módulo", economia: "~80% off", link: "https://plati.market/search/canva%20pro" },
-      { nome: "Gamma", funcao: "Apresentações IA", papelNoStack: "Gera slides e páginas de aula em segundos", economia: "~75% off", link: "https://plati.market/search/gamma" },
-      { nome: "ElevenLabs", funcao: "Voz por IA", papelNoStack: "Narra as aulas sem precisar gravar a própria voz", economia: "~75% off", link: "https://plati.market/search/elevenlabs" },
-    ],
-  },
-  {
-    slug: "freelancer-agencia",
-    papel: "Freelancer / agência",
-    uso: "Produtividade e automação de entregas",
-    tools: ["ChatGPT", "Notion", "Canva", "Automação"],
-    economia: "R$ 500/mês",
-    detalhe: [
-      { nome: "ChatGPT Plus", funcao: "IA de texto", papelNoStack: "Briefings, propostas e respostas para clientes", economia: "~85% off", link: "https://plati.market/search/chatgpt" },
-      { nome: "Notion AI", funcao: "Gestão + IA", papelNoStack: "Organiza projetos, tarefas e documentação", economia: "~70% off", link: "https://plati.market/search/notion%20ai" },
-      { nome: "Canva Pro", funcao: "Design gráfico", papelNoStack: "Entrega criativos e identidade para os clientes", economia: "~80% off", link: "https://plati.market/search/canva%20pro" },
-      { nome: "Make / Zapier", funcao: "Automação", papelNoStack: "Automatiza entregas, integrações e relatórios", economia: "~70% off", link: "https://plati.market/search/make" },
-    ],
-  },
-];
-
-const RANKINGS = [
-  {
-    titulo: "Maiores economias encontradas",
-    itens: [
-      { nome: "Envato Elements", obs: "Assinatura anual completa", economia: "91%", anchor: "#ferramenta-envato", link: "https://plati.market/search/envato" },
-      { nome: "CapCut Pro", obs: "Licença anual com edição pro", economia: "90%", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "Freepik Premium", obs: "Banco de mídia anual", economia: "90%", anchor: "#ferramenta-freepik", link: "https://plati.market/search/freepik" },
-      { nome: "Motion Array", obs: "Templates de vídeo anuais", economia: "89%", anchor: "#ferramenta-motion-array", link: "https://plati.market/search/motion%20array" },
-      { nome: "Creative Fabrica", obs: "Fontes e gráficos anuais", economia: "88%", anchor: "#ferramenta-creative-fabrica", link: "https://plati.market/search/creative%20fabrica" },
-    ],
-  },
-  {
-    titulo: "Melhores para criadores de conteúdo",
-    itens: [
-      { nome: "ChatGPT Plus", obs: "Roteiros e ideias ilimitadas", economia: "84%", anchor: "#ferramenta-chatgpt", link: "https://plati.market/search/chatgpt" },
-      { nome: "Canva Pro", obs: "Criativos rápidos", economia: "80%", anchor: "#ferramenta-canva", link: "https://plati.market/search/canva%20pro" },
-      { nome: "ElevenLabs", obs: "Narrações naturais", economia: "77%", anchor: "#ferramenta-elevenlabs", link: "https://plati.market/search/elevenlabs" },
-      { nome: "Midjourney", obs: "Imagens artísticas de alta qualidade", economia: "80%", anchor: "#ferramenta-midjourney", link: "https://plati.market/search/midjourney" },
-      { nome: "Gamma", obs: "Apresentações em minutos", economia: "73%", anchor: "#ferramenta-gamma", link: "https://plati.market/search/gamma" },
-    ],
-  },
-  {
-    titulo: "Melhores para quem trabalha com vídeo",
-    itens: [
-      { nome: "CapCut Pro", obs: "Edição pro acessível", economia: "90%", anchor: "#ferramenta-capcut-pro", link: "https://plati.market/search/capcut%20pro" },
-      { nome: "Runway", obs: "Geração e efeitos com IA", economia: "78%", anchor: "#ferramenta-runway", link: "https://plati.market/search/runway" },
-      { nome: "Kling", obs: "Vídeos cinematográficos com IA", economia: "77%", anchor: "#ferramenta-kling", link: "https://plati.market/search/kling" },
-      { nome: "Pika", obs: "Vídeos curtos e animações", economia: "77%", anchor: "#ferramenta-pika", link: "https://plati.market/search/pika" },
-      { nome: "ElevenLabs", obs: "Dublagem e narração realista", economia: "77%", anchor: "#ferramenta-elevenlabs", link: "https://plati.market/search/elevenlabs" },
-    ],
-  },
-  {
-    titulo: "Melhores para produtividade e negócios",
-    itens: [
-      { nome: "Notion AI", obs: "Organização inteligente", economia: "76%", anchor: "#ferramenta-notion", link: "https://plati.market/search/notion%20ai" },
-      { nome: "Gamma", obs: "Apresentações em minutos", economia: "73%", anchor: "#ferramenta-gamma", link: "https://plati.market/search/gamma" },
-      { nome: "Make / Zapier", obs: "Automação de fluxos", economia: "72%", anchor: "#ferramenta-make", link: "https://plati.market/search/make" },
-      { nome: "n8n", obs: "Automação open-source", economia: "74%", anchor: "#ferramenta-n8n", link: "https://plati.market/search/n8n" },
-      { nome: "Microsoft Copilot", obs: "Office, Word e Excel com IA", economia: "68%", anchor: "#ferramenta-copilot", link: "https://plati.market/search/copilot" },
-    ],
-  },
-];
 
 const ATUALIZACOES = [
   "Novas ferramentas adicionadas",
@@ -522,12 +275,13 @@ function MapaVIP() {
                 <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-emerald-300">
                   Pagamento
                 </div>
-                <h3 className="mt-1 text-base font-bold text-white">Pode pagar com Pix</h3>
+                <h3 className="mt-1 text-base font-bold text-white">Pix pode aparecer no checkout</h3>
                 <p className="mt-2 text-sm text-white/75">
-                  Todas as ofertas do Plati.Market aceitam{" "}
-                  <strong className="text-emerald-300">Pix</strong> como forma de pagamento. Basta
-                  escolher Pix no checkout — sem precisar de cartão internacional.
+                  Algumas ofertas podem disponibilizar{" "}
+                  <strong className="text-emerald-300">Pix</strong> no checkout. Confira as formas de
+                  pagamento disponíveis na oferta antes de concluir a compra.
                 </p>
+
               </div>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -581,14 +335,15 @@ function MapaVIP() {
                   <h3 className="text-lg font-bold text-white">{c.nome}</h3>
                   <p className="mt-1 text-sm text-white/60">{c.desc}</p>
                   <ul className="mt-4 flex flex-wrap gap-2">
-                    {c.tools.map((t) => (
+                    {c.tools.map((id) => (
                       <li
-                        key={t.slug}
+                        key={id}
                         className="rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 px-2.5 py-1 text-xs text-[#f5d572]"
                       >
-                        {t.nome}
+                        {getTool(id).nome}
                       </li>
                     ))}
+
                   </ul>
                   <a
                     href={`#categoria-${c.slug}`}
@@ -623,10 +378,12 @@ function MapaVIP() {
                   </div>
 
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    {c.tools.map((t) => (
+                    {c.tools.map((id) => {
+                      const t = getTool(id);
+                      return (
                       <div
-                        key={t.slug}
-                        id={`ferramenta-${t.slug}`}
+                        key={t.id}
+                        id={`ferramenta-${t.id}`}
                         className="scroll-mt-24 flex flex-col rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-5"
                       >
                         <h4 className="text-base font-bold text-white">{t.nome}</h4>
@@ -641,7 +398,7 @@ function MapaVIP() {
                             <dd className="text-right text-white/50 line-through">{t.oficial}</dd>
                           </div>
                           <div className="flex justify-between gap-3">
-                            <dt className="text-white/50">Preço encontrado</dt>
+                            <dt className="text-white/50">Preço de referência</dt>
                             <dd className="text-right font-semibold text-[#86efac]">{t.encontrado}</dd>
                           </div>
                           <div className="flex justify-between gap-3">
@@ -664,15 +421,17 @@ function MapaVIP() {
                           </div>
                         </dl>
                         <a
-                          href={t.link}
+                          href={toolUrl(t.id)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black"
+                          className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black"
                         >
                           Abrir opções no Plati →
                         </a>
                       </div>
-                    ))}
+                      );
+                    })}
+
                   </div>
                 </div>
               ))}
@@ -686,15 +445,17 @@ function MapaVIP() {
                 <table className="w-full min-w-[900px] text-left text-sm">
                   <thead className="bg-white/[0.03] text-[11px] uppercase tracking-wider text-white/55">
                     <tr>
-                      {["Ferramenta", "Categoria", "Tipo", "Preço oficial", "Preço encontrado", "Economia", "Link"].map((h) => (
+                      {["Ferramenta", "Categoria", "Tipo", "Preço oficial", "Preço de referência", "Economia", "Link"].map((h) => (
                         <th key={h} className="px-4 py-3 font-semibold">{h}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
-                    {OFERTAS.map((o) => (
-                      <tr key={o.tool} className="border-t border-white/5 hover:bg-white/[0.02]">
-                        <td className="px-4 py-3 font-semibold text-white">{o.tool}</td>
+                    {OFERTAS.map((id) => {
+                      const o = getTool(id);
+                      return (
+                      <tr key={o.id} className="border-t border-white/5 hover:bg-white/[0.02]">
+                        <td className="px-4 py-3 font-semibold text-white">{o.nome}</td>
                         <td className="px-4 py-3 text-white/70">{o.cat}</td>
                         <td className="px-4 py-3 text-white/70">{o.tipo}</td>
                         <td className="px-4 py-3 text-white/50 line-through">{o.oficial}</td>
@@ -702,16 +463,18 @@ function MapaVIP() {
                         <td className="px-4 py-3 font-semibold text-[#f5d572]">{o.economia}</td>
                         <td className="px-4 py-3">
                           <a
-                            href={o.link}
+                            href={toolUrl(o.id)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-xs font-semibold text-black"
+                            className="inline-flex min-h-11 items-center rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-xs font-semibold text-black"
                           >
                             Abrir opções
                           </a>
                         </td>
                       </tr>
-                    ))}
+                      );
+                    })}
+
                   </tbody>
                 </table>
               </div>
@@ -728,14 +491,16 @@ function MapaVIP() {
                 <div key={r.titulo} className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-6">
                   <h3 className="text-lg font-bold text-white">{r.titulo}</h3>
                   <ol className="mt-4 space-y-3">
-                    {r.itens.map((i, idx) => (
-                      <li key={i.nome} className="flex flex-wrap items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3 sm:flex-nowrap">
+                    {r.itens.map((item, idx) => {
+                      const i = getTool(item.id);
+                      return (
+                      <li key={i.id} className="flex flex-wrap items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3 sm:flex-nowrap">
                         <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#d4af37]/15 text-sm font-black text-[#f5d572]">
                           {idx + 1}
                         </span>
-                        <a href={i.anchor} className="min-w-0 flex-1">
+                        <a href={toolAnchor(i.id)} className="min-w-0 flex-1">
                           <div className="text-sm font-semibold text-white hover:text-[#f5d572]">{i.nome}</div>
-                          <div className="text-xs text-white/60">{i.obs}</div>
+                          <div className="text-xs text-white/60">{item.obs}</div>
                         </a>
                         <div className="flex shrink-0 flex-col items-end leading-none">
                           <span className="bg-gradient-to-r from-[#f5d572] to-[#b8881e] bg-clip-text text-3xl font-black tracking-tight text-transparent sm:text-4xl">
@@ -746,7 +511,7 @@ function MapaVIP() {
                           </span>
                         </div>
                         <a
-                          href={i.link}
+                          href={toolUrl(i.id)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-3 py-1.5 text-[11px] font-semibold text-black min-h-11"
@@ -754,8 +519,9 @@ function MapaVIP() {
                           Abrir no Plati →
                         </a>
                       </li>
+                      );
+                    })}
 
-                    ))}
                   </ol>
                 </div>
               ))}
@@ -795,10 +561,11 @@ function MapaVIP() {
                   <p className="mt-1 text-sm text-white/60">{s.uso}</p>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {s.tools.map((t) => (
-                      <li key={t} className="rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 px-2.5 py-1 text-xs text-[#f5d572]">
-                        {t}
+                      <li key={t.id} className="rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 px-2.5 py-1 text-xs text-[#f5d572]">
+                        {getTool(t.id).nome}
                       </li>
                     ))}
+
                   </ul>
                   <div className="mt-5 rounded-xl border border-emerald-500/15 bg-emerald-500/5 p-3 text-sm text-emerald-300">
                     Economia estimada: <strong>{s.economia}</strong>
@@ -837,9 +604,11 @@ function MapaVIP() {
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
-                    {s.detalhe.map((d, i) => (
+                    {s.tools.map((item, i) => {
+                      const d = getTool(item.id);
+                      return (
                       <div
-                        key={d.nome}
+                        key={d.id}
                         className="group relative flex flex-col rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-5 transition hover:border-[#f5d572]/40 hover:from-[#f5d572]/[0.06]"
                       >
                         <div className="flex items-start justify-between gap-2">
@@ -847,7 +616,7 @@ function MapaVIP() {
                             {i + 1}
                           </div>
                           <span className="rounded-full border border-[#f5d572]/30 bg-[#f5d572]/10 px-2 py-0.5 text-[10px] font-semibold text-[#f5d572]">
-                            {d.economia}
+                            {d.economia} off
                           </span>
                         </div>
                         <div className="mt-3 text-base font-bold text-white">{d.nome}</div>
@@ -855,18 +624,20 @@ function MapaVIP() {
                           {d.funcao}
                         </div>
                         <p className="mt-3 flex-1 text-sm leading-relaxed text-white/70">
-                          {d.papelNoStack}
+                          {item.papelNoStack}
                         </p>
                         <a
-                          href={d.link}
+                          href={toolUrl(d.id)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black transition hover:brightness-110"
+                          className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f5d572] to-[#b8881e] px-4 py-2 text-xs font-semibold text-black transition hover:brightness-110"
                         >
                           Abrir opções no Plati →
                         </a>
                       </div>
-                    ))}
+                      );
+                    })}
+
                   </div>
                 </div>
               ))}
